@@ -1,0 +1,142 @@
+.clearfix {
+	
+	& .ie {
+		zoom:1;
+	}
+	
+	&:after 
+	{
+		content:'\\0020';
+		display:block;
+		height:0;
+		clear:both;
+		visibility:hidden;
+		font-size:0;
+	}
+}
+
+@mixin clear_floated_children($after = false)
+{
+	@if $after == false
+	{
+		overflow:hidden;
+	}
+	@else
+	{
+		
+	}
+}
+
+.inline-block {
+	.ie & {
+		display : inline; 
+	}
+
+	display         : -moz-inline-box;
+	-moz-box-orient : vertical;
+	display         : inline-block;
+	vertical-align  : middle;
+   
+	.ie & {
+		vertical-align : auto;
+	}
+}
+
+/* for image replacement */
+.image-replace-base {
+	display: block;
+	text-indent: -9999em;
+	overflow: hidden;
+  	background-repeat: no-repeat; 
+	text-align: left; 
+	direction: ltr;
+}
+
+@mixin image-replace($img) {
+	@extend .image-replace-base;
+	height:image_height($img);
+	width:image_width($img);
+}
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden {
+	display:none;
+	visibility: hidden;
+} 
+
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/ 
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+.visuallyhidden {
+	position: absolute !important;    
+  	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  	clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+	visibility: hidden;
+}
+
+ /**
+ * Sharpen an image if it has become blurry due to upscaling or downscaling
+ * @see https://developer.mozilla.org/en/CSS/image-rendering
+ */
+.image-sharpen {
+	image-rendering:-moz-crisp-edges;
+	-ms-interpolation-mode:nearest-neighbor;  /* IE 7+ */
+}
+
+/**
+ * When photos are upscaled or downscaled, they often get blurry. Don't use
+ * this on flat color images, they will still appear blurry.
+ * @see https://developer.mozilla.org/en/CSS/image-rendering
+ */
+.image-high-quality {
+	image-rendering:optimizeQuality;
+	-ms-interpolation-mode:bicubic;  /* IE 7+ */
+}
+
+/**
+ * Optimizes the rendering on images so they
+ * appear faster, but at a lower quality. Useful for <video>
+ */
+.image-low-quality {
+	image-rendering:optimizeSpeed;
+}
+
+/* Resets the box model on an element */
+.reset_box {
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+/* Makes a list block inline */
+.inline-list {
+	@include clear_floated_children;
+	@extend .reset_box;
+	
+	li
+	{
+		list-style-type:none;
+		margin-left:0;
+		float:left;
+		white-space:nowrap;
+	}
+}
+
+@mixin hasLayout
+{
+	zoom:1;
+}
+
+@mixin inline-block
+{
+	@include hasLayout;
+	display:inline; 
+	display:-moz-inline-box; 
+	display:inline-block; 
+	vertical-align:top;
+}

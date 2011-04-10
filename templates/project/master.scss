@@ -1,0 +1,10 @@
+@import "foundation";
+
+/* Default Layout */
+@import "media/desktop.css" screen and (min-width: 481px);
+
+/* Adjusted default layout for smaller tablet screens */
+@import "media/tablet.css" screen and (min-width: 481px) and (max-width: 1024px);
+
+/* Adjusted layout for mobile devices */
+@import "media/mobile.css" screen and (max-width: 480px);
