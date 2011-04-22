@@ -1,11 +1,8 @@
-@import "compass";
-@import "foundation";
-
 // Default Layout
-@import "media/1025.css" screen and (min-width: 481px);
+@import "layouts/desktop/master.css" screen and (min-width: 481px);
 
 // Adjusted default layout for smaller tablet screens
-@import "media/tablet.css" screen and (min-width: 481px) and (max-width: 1024px);
+@import "layouts/tablet/master.css" screen and (min-width: 481px) and (max-width: 1024px);
 
 // Adjusted layout for mobile devices
-@import "media/mobile.css" screen and (max-width: 480px);
+@import "layouts/mobile/master.css" screen and (max-width: 480px);

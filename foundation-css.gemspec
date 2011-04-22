@@ -8,17 +8,16 @@ Gem::Specification.new do |s|
   s.authors = ["Anthony Short"]
   s.summary = %q{a css framework for Compass}
   s.description = %q{a css framework for Compass}
-  s.email = "ant@anthy.me"
-  s.homepage = "http://anthy.me/"
+  s.email = "ant@anthonyshort.me"
+  s.homepage = "http://anthonyshort.me/"
 
   # Gem Files
   s.files = %w(README.md)
-  s.files += Dir.glob("lib/**/*.*")
+  s.files += Dir.glob("lib/*.*")
   s.files += Dir.glob("stylesheets/**/*.*")
   s.files += Dir.glob("templates/**/*.*")
 
   # Gem Bookkeeping
-  s.has_rdoc = false
   s.rubygems_version = %q{1.3.6}
   s.add_dependency("compass", [">= 0.11.beta.3"])
 end
