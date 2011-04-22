@@ -1,0 +1,19 @@
+/*
+  For blocks of content with media beside them.
+  Adding overflow hidden changes the way the content interacts with the float
+*/
+
+/*
+	<div>
+		<img class="content-image" />
+		<div class="content"></div>
+	</div>
+*/
+@mixin content-with-media($float: left) {
+ 	& > .content-image {
+		float:$float;
+	}
+	& > .content {
+		overflow:hidden;
+	}
+}

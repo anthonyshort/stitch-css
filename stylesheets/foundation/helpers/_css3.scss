@@ -1,0 +1,231 @@
+/* Prefixing
+---------------------------------------- */
+
+$default-prefixes: -webkit, -moz, -o, -khtml, -ms;
+
+@mixin experimental($property, $value, $prefixes: $default-prefixes) {
+	
+	// Unquote the values
+	$property : unquote($property);
+	$value    : unquote($value);
+	
+	// Loop through the prefixes given
+	@each $prefix in $prefixes {
+		#{$prefix}-#{$property}:$value;
+	}
+}
+
+@mixin experimental-value($property, $value, $prefixes: $default-prefixes) {
+	
+	// Unquote the values
+	$property : unquote($property);
+	$value    : unquote($value);
+	
+	// Loop through the prefixes given
+	@each $prefix in $prefixes {
+		#{$property}:#{$prefix}-#{$value};
+	}
+}
+
+
+/* Appearance
+---------------------------------------- */
+
+$default-prefixes-appearance: -webkit, -moz;
+
+@mixin appearance($v, $prefixes: $default-prefixes-appearance) {
+	@include experimental(appearance,$v,$prefixes);
+	appearance:$v;
+}
+
+/* Background Clip
+---------------------------------------- */
+
+$default-prefixes-background-clip: -webkit, -moz;
+
+@mixin background-clip($v, $prefixes: $default-prefixes-background-clip) {
+	@include experimental(background-clip,$v,$prefixes);
+	background-clip:$v;
+}
+
+/* Background Origin
+---------------------------------------- */
+
+$default-prefixes-background-origin: -webkit, -moz;
+
+@mixin background-origin($v, $prefixes: $default-prefixes-background-origin) {
+	@include experimental(background-origin,$v,$prefixes);
+	background-origin:$v;
+}
+
+/* Background Size
+---------------------------------------- */
+
+$default-prefixes-background-size: -webkit, -moz; 
+
+@mixin background-size($v, $prefixes: $default-prefixes-background-size) {
+	@include experimental(background-size,$v,$prefixes);
+	background-size:$v;
+}
+
+/* Border Radius
+---------------------------------------- */
+
+$default-prefixes-border-radius: -webkit, -moz; 
+
+@mixin border-radius($r, $prefixes: $default-prefixes-border-radius) {
+	@include experimental(border-radius,$r,$prefixes);
+	border-radius:$r;
+}
+
+/* Box Shadow
+---------------------------------------- */
+
+$default-prefixes-box-shadow: -webkit, -moz; 
+
+@mixin box-shadow($v, $prefixes: $default-prefixes-box-shadow) {
+	@include experimental(border-radius,$v,$prefixes);
+	box-shadow:$v;
+}
+
+/* Flexible Box
+---------------------------------------- */
+
+$default-prefixes-box: -webkit, -moz;
+
+@mixin display-box($prefixes: $default-prefixes-box) {
+	@include experimental-value(display,box,$prefixes);
+}
+
+@mixin box-orient($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-orient,$v,$prefixes);
+}
+
+@mixin box-align($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-align,$v,$prefixes);
+}
+
+@mixin box-flex($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-flex,$v,$prefixes);
+}
+
+@mixin box-flex-group($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-flex-group,$v,$prefixes);
+}
+
+@mixin box-ordinal-group($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-ordinal-group,$v,$prefixes);
+}
+
+@mixin box-direction($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-direction,$v,$prefixes);
+}
+
+@mixin box-lines($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-direction,$v,$prefixes);
+}
+
+@mixin box-pack($v, $prefixes: $default-prefixes-box) {
+	@include experimental(box-direction,$v,$prefixes);
+}
+
+/* Box Sizing
+---------------------------------------- */
+
+$default-prefixes-box-sizing: -webkit, -moz;
+
+@mixin box-sizing($v, $prefixes: $default-prefixes-box-sizing) {
+	@include experimental(box-sizing,$v,$prefixes);
+}
+
+/* Columns
+---------------------------------------- */
+
+$default-prefixes-columns: -webkit, -moz;
+
+@mixin column-count($v, $prefixes: $default-prefixes-columns) {
+	@include experimental(column-count,$v,$prefixes);
+}
+
+@mixin column-gap($v, $prefixes: $default-prefixes-columns) {
+	@include experimental(column-gap,$v,$prefixes);
+}
+
+@mixin column-width($v, $prefixes: $default-prefixes-columns) {
+	@include experimental(column-width,$v,$prefixes);
+}
+
+@mixin column-rule-width($v, $prefixes: $default-prefixes-columns) {
+	@include experimental(column-rule-width,$v,$prefixes);
+}
+
+@mixin column-rule-style($v, $prefixes: $default-prefixes-columns) {
+	@include experimental(column-rule-style,$v,$prefixes);
+}
+
+@mixin column-rule-color($v, $prefixes: $default-prefixes-columns) {
+	@include experimental(column-rule-color,$v,$prefixes);
+}
+
+@mixin column-rule($v, $prefixes: $default-prefixes-columns) {
+	@include experimental(column-rule,$v,$prefixes);
+}
+
+/* Transforms
+---------------------------------------- */
+
+$default-prefixes-transform: -webkit, -moz;
+
+// @see http://www.w3.org/TR/css3-2d-transforms/#transform-property
+@mixin transform($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transform,$v,$prefixes);
+}
+
+// @see http://www.w3.org/TR/css3-2d-transforms/#transform-origin-property
+@mixin transform-origin($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transform-origin,$v,$prefixes);
+}
+
+// @see http://www.w3.org/TR/css3-3d-transforms/#transform-style
+@mixin transform-style($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transform-style,$v,$prefixes);
+}
+
+// @see http://www.w3.org/TR/css3-3d-transforms/#perspective
+@mixin perspective-origin($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(perspective-origin,$v,$prefixes);
+}
+
+// @see http://www.w3.org/TR/css3-3d-transforms/#backface-visibility
+@mixin backface-visibility($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(backface-visibility,$v,$prefixes);
+}
+
+/* Transitions
+---------------------------------------- */
+
+/*
+  @see http://www.w3.org/TR/css3-transitions/
+*/
+
+$default-prefixes-transition: -webkit, -moz;
+
+@mixin transition-property($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transition-property,$v,$prefixes);
+}
+
+@mixin transition-duration($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transition-duration,$v,$prefixes);
+}
+
+@mixin transition-timing-function($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transition-timing-function,$v,$prefixes);
+}
+
+@mixin transition-delay($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transition-delay,$v,$prefixes);
+}
+
+@mixin transition($v, $prefixes:$default-prefixes-transform) {
+	@include experimental(transition,$v,$prefixes);
+}

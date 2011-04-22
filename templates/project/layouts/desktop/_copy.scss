@@ -1,0 +1,140 @@
+/* Define styles for blocks of content scoped within the .copy rather than
+   making them global. Global styles will be constantly overridden. */
+.copy {
+	@include improve-text-rendering;
+	
+	/* 
+	  Set the baseline on all elements directly inside a copy block
+	  Inline elements won't take margin anyway
+	*/
+	& > * {
+		margin:0 0 $baseline 0;	
+	}
+	
+	/* Block Elements
+	---------------------------------------- */
+
+	p {
+		
+	}
+
+	address {
+
+	}
+	
+	/* Lists
+	---------------------------------------- */
+
+	ul {
+
+	}
+
+	ol {
+
+	}
+
+	li {
+		display: list-item;
+	}
+
+	dl {
+
+	}
+
+	dt {
+
+	}
+
+	dd {
+
+	}
+	
+	/* Code Blocks
+	---------------------------------------- */
+
+	pre {
+
+	}
+	
+	/* Headings
+	---------------------------------------- */
+
+	h1,h2,h3,h4,h5,h6 {
+
+	}
+
+	h1 {
+
+	}
+
+	h2 {
+
+	}
+
+	h3 {
+
+	}
+
+	h4 {
+
+	}
+
+	h5 {
+
+	}
+
+	h6 {
+
+	}
+
+	/* Inline Elements
+	---------------------------------------- */
+
+	em {
+		font-style:italic;
+	}
+
+	strong {
+		font-weight:bold;
+	}
+
+	mark {
+		background:yellow;
+	}
+
+	ins {
+		background:green;
+	}
+
+	del {
+		background:red;
+	}
+
+	abbr {
+
+	}
+	
+	code {
+		
+	}
+	
+	kbd {
+		
+	}
+	
+	/* Links
+	---------------------------------------- */
+
+	a {
+		font-weight:bold;
+		text-decoration:underline;
+	}
+
+	a:visited {
+
+	}
+
+	a:hover {
+
+	}
+}

@@ -1,0 +1,20 @@
+// Patterns
+@import "foundation/patterns";
+
+// Reset
+@import "foundation/reset/desktop";
+
+// Assets
+/*
+  @import "assets/fonts/font_name";
+  @import "assets/fonts/another_font";
+  @import "assets/icons/icon-name";
+*/
+
+// Specific styles
+@import "functions";
+@import "global";
+@import "copy";
+@import "layout";
+@import "modules";
+@import "forms";
