@@ -1,0 +1,8 @@
+// Default Layout
+@import "layouts/desktop/master.css" screen and (min-width: 481px);
+
+// Adjusted default layout for smaller tablet screens
+@import "layouts/tablet/master.css" screen and (min-width: 481px) and (max-width: 1024px);
+
+// Adjusted layout for mobile devices
+@import "layouts/mobile/master.css" screen and (max-width: 480px);
