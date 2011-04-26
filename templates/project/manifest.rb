@@ -1,4 +1,3 @@
-discover :all
 description "Stitch CSS directory template"
 
 help %Q{
@@ -16,3 +15,18 @@ welcome_message %Q{
     
     Read the documentation for more information about structuring your CSS. 
 }
+
+stylesheet 'legacy.scss'
+stylesheet 'master.scss'
+
+# Assets directories
+directory 'assets'
+directory 'assets/bg'
+directory 'assets/borders'
+directory 'assets/fonts'
+directory 'assets/icons'
+directory 'assets/sprites'
+directory 'assets/text'
+
+# Layouts
+directory 'sass/layouts'

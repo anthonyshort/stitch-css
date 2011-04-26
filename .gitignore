@@ -1,4 +1,5 @@
 */.DS_Store
 *.gem
-*/.sass-cache
+*/.sass-cache/*
 pkg/*
+*/.gitignore
