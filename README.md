@@ -10,27 +10,32 @@ By breaking these patterns into reusable classes and mixins we:
 * Only have to write them once
 * Are updatable when newer methods are discovered by updating the framework
 
-# Get It
+# Get Stitch
 
 Install the Rubygem.
 
-````
-gem install compass-stitch
-```` 
+	gem install compass-stitch
 
-Then in your compass projects, you have access to the patterns. To import all patterns (except the reset) use:
+Now create your project:
 
-````
-@import 'stitch/patterns';
-````
+	compass create my-project -r compass-stitch
 
-At the top of your stylesheet. 
+Then in your compass projects, you have access to the patterns. 
+
+# Add Stitch to a current project
+
+To add Stitch patterns to a current project, add this to the top of your stylesheets
+
+	@import 'stitch/patterns';
+	
+And in your Compass config.rb file add
+	
+	require 'compass-stitch'
+
 
 # Patterns
 
-To see all of the patterns available, look at:
-
-https://github.com/anthonyshort/stitch-css/tree/master/stylesheets/stitch/patterns
+[See all of the patterns available](https://github.com/anthonyshort/stitch-css/tree/master/stylesheets/stitch/patterns)
 
 By using @import 'stitch/patterns'; you will have access to all of the pattern mixins.
 
@@ -38,11 +43,13 @@ By using @import 'stitch/patterns'; you will have access to all of the pattern m
 
 Stitch includes a CSS reset. This is a new reset I'm working on. It resets everything back to it's raw text form so that it's easy to build from.
 
-View the reset here: https://github.com/anthonyshort/stitch-css/blob/master/stylesheets/stitch/patterns/reset/_desktop.scss
+To manually import the Stitch reset.
 
-# Helpers
-
-Helpers are parts of code that make writing stylesheets a little bit easier by allowing us to not have to remember chunks of code. Unlike patterns that perform a particular function, helpers just make it easier to do certain things, such as writing prefixed CSS3 properties.
+	@import 'stitch/reset/desktop';
+	
+If you're using the Stitch project template, this will be included for you.
+	
+Stitch only includes a [desktop reset](https://github.com/anthonyshort/stitch-css/blob/master/stylesheets/stitch/patterns/reset/_desktop.scss) for now.
 
 # Project Template
 
@@ -52,16 +59,14 @@ However, we don't want to ALWAYS use media queries, so we still have the option 
 
 There are two files, master.scss and legacy.scss. Master imports the layouts based on media queries:
 
-````
-// Default Layout
-@import "layouts/desktop/master.css" screen and (min-width: 481px);
+	// Default Layout
+	@import "layouts/desktop/master.css" screen and (min-width: 481px);
 
-// Adjusted default layout for smaller tablet screens
-@import "layouts/tablet/master.css" screen and (min-width: 481px) and (max-width: 1024px);
+	// Adjusted default layout for smaller tablet screens
+	@import "layouts/tablet/master.css" screen and (min-width: 481px) and (max-width: 1024px);
 
-// Adjusted layout for mobile devices
-@import "layouts/mobile/master.css" screen and (max-width: 480px);
-````
+	// Adjusted layout for mobile devices
+	@import "layouts/mobile/master.css" screen and (max-width: 480px);
 
 Whereas the legacy file will import files statically and without media queries. This means we can send the legacy file to browsers that don't support media queries, and we can send the master file to browsers that do.
 
