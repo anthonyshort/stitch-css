@@ -15,12 +15,16 @@ By breaking these patterns into reusable classes and mixins we:
 Install the Rubygem.
 
 	gem install compass-stitch
+	
+# Create a new project
 
-Now create your project:
+Now create your bare project that includes compass-stitch:
 
-	compass create my-project -r compass-stitch
+	compass create my-project --bare -r compass-stitch
+	
+Install the project template:
 
-Then in your compass projects, you have access to the patterns. 
+	compass install stitch/project
 
 # Add Stitch to a current project
 
@@ -31,7 +35,12 @@ To add Stitch patterns to a current project, add this to the top of your stylesh
 And in your Compass config.rb file add
 	
 	require 'compass-stitch'
+	
+To use the project template layout, run
 
+	compass install stitch/project
+
+and the project template will be installed into your current directory 
 
 # Patterns
 
