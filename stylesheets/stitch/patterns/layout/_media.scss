@@ -10,15 +10,14 @@
 		<div class="content"></div>
 	</div>
 */
-/*
-@mixin content-with-media($position: left, $spacing:20px, $image: .content-image, $content: .content) {
- 	#{$image} {
+
+@mixin content-with-media($position: left, $spacing:20px, $image: '.content-image', $content: '.content') {
+ 	#{unquote($image)} {
 		float:$position;
 		margin-#{opposite-position($position)}:$spacing;
 	}
-	#{$content} {
+	#{unquote($content)} {
 		overflow:hidden;
 		float:none;
 	}
 }
-*/
