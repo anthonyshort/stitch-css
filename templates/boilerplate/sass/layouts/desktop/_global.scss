@@ -1,0 +1,52 @@
+/*
+  These are global styles with NO SCOPE
+*/
+
+/* Basic
+---------------------------------------- */
+html {
+	@include force-scrollbars;
+}
+
+/* Typography
+---------------------------------------- */
+$baseline: 21px;
+$base-font-size: 16px;
+
+body,
+input,
+label,
+select,
+button,
+textarea,
+table {
+	  font-size: $base-font-size;
+	font-family: Georgia;
+	line-height: $baseline;
+	      color: #000;
+}
+
+/* These ::selection declarations have to be separate. 
+   They cause the browsers to freak out. */
+@mixin text-selection {
+	 background: #000;
+	      color: #fff;
+	text-shadow: none;
+}
+
+::-moz-selection  { @include text-selection }
+::selection       { @include text-selection }
+
+h1,h2,h3,h4,h5,h6 {
+  @include improve-text-rendering; 
+}
+
+/* Forms
+---------------------------------------- */
+input:focus {
+  outline: 0; 
+}
+
+input[type="search"] {
+  @include reset-search-field;
+}

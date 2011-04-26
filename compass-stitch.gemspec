@@ -4,7 +4,7 @@ require "compass-stitch/version"
 
 Gem::Specification.new do |s|
   s.name        = "compass-stitch"
-  s.version     = Compass::Stitch::VERSION
+  s.version     = Stitch::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Anthony Short"]
   s.email       = ["antshort@gmail.com"]
