@@ -28,15 +28,14 @@ table {
 
 /* These ::selection declarations have to be separate. 
    They cause the browsers to freak out. */
-@mixin text-selection
-{
+@mixin text-selection {
 	 background: #000;
 	      color: #fff;
 	text-shadow: none;
 }
 
-::-moz-selection { @include text-selection; }
-::selection { @include text-selection; }
+::-moz-selection  { @include text-selection }
+::selection       { @include text-selection }
 
 h1,h2,h3,h4,h5,h6 {
   @include improve-text-rendering; 
@@ -49,5 +48,5 @@ input:focus {
 }
 
 input[type="search"] {
-	@include reset-search-field;
+  @include reset-search-field;
 }

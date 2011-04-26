@@ -1,4 +1,4 @@
-# Foundation 
+# Foundation
 
 ## To Do
 

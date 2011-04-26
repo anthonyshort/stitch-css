@@ -1,15 +1,15 @@
-// Patterns
+// Compass
+@import "compass/css3/images";
+
+// Foundation
 @import "foundation/patterns";
+@import "foundation/helpers";
+@import "foundation/functions";
 
 // Reset
 @import "foundation/reset/desktop";
 
 // Assets
-/*
-  @import "assets/fonts/font_name";
-  @import "assets/fonts/another_font";
-  @import "assets/icons/icon-name";
-*/
 
 // Specific styles
 @import "functions";

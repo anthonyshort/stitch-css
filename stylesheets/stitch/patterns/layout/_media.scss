@@ -1,0 +1,22 @@
+/*
+  For blocks of content with media beside them.
+  Adding overflow hidden changes the way the content interacts with the float
+*/
+
+/*
+	Apply it to the wrapper div
+	<div>
+		<img class="content-image" />
+		<div class="content"></div>
+	</div>
+*/
+@mixin content-with-media($position: left, $spacing:20px, $image: .content-image, $content: .content) {
+ 	#{$image} {
+		float:$position;
+		margin-#{opposite-position($position)}:$spacing;
+	}
+	#{$content} {
+		overflow:hidden;
+		float:none;
+	}
+}
