@@ -1,0 +1,15 @@
+/*
+  All layout styles should go in here. Seperate your layout styles from your design styles
+  Common layout styles should be mixins, patterns or modules
+*/
+body {
+	@include center-horizontal(500px);
+	padding:$baseline*3;
+}
+
+nav {
+	margin-bottom:$baseline;
+	li {
+		@include inline-block;
+	}
+}

@@ -1,0 +1,159 @@
+/* Define styles for blocks of content scoped within the .copy rather than
+   making them global. Global styles will be constantly overridden. */
+.copy {
+	@include improve-text-rendering;
+	
+	/* 
+	  Set the baseline on all elements directly inside a copy block
+	  Inline elements won't take margin anyway
+	*/
+	& > *,
+	section > * {
+		margin:0 0 $baseline 0;	
+	}
+	
+	/* Block Elements
+	---------------------------------------- */
+
+	p {
+		code {
+			color:#777;
+		}
+	}
+
+	address {
+
+	}
+	
+	/* Lists
+	---------------------------------------- */
+
+	ul {
+		li {
+			list-style:disc;
+		}
+	}
+
+	ol {
+
+	}
+
+	li {
+		display:list-item;
+	}
+
+	dl {
+
+	}
+
+	dt {
+
+	}
+
+	dd {
+
+	}
+	
+	/* Code Blocks
+	---------------------------------------- */
+
+	pre {
+		@include border-radius(5px);
+		background:#eee;
+		padding:20px;
+	}
+	
+	code {
+		font-family:monospace;
+	}
+	
+	/* Headings
+	---------------------------------------- */
+
+	h1,h2,h3,h4,h5,h6 {
+
+	}
+
+	h1 {
+		font-size:24px;
+		border-top:3px solid #ccc;
+		padding-top:$baseline;
+		margin-top:$baseline*2;
+	}
+
+	h2 {
+		@extend h1;
+		border-top:none;
+		font-size:18px;
+		font-weight:bold;
+		padding:0;
+		margin:0 0 $baseline 0;
+	}
+
+	h3 {
+
+	}
+
+	h4 {
+
+	}
+
+	h5 {
+
+	}
+
+	h6 {
+
+	}
+
+	/* Inline Elements
+	---------------------------------------- */
+
+	em {
+		font-style:italic;
+	}
+
+	strong {
+		font-weight:bold;
+	}
+
+	mark {
+		background:yellow;
+	}
+
+	ins {
+		background:green;
+	}
+
+	del {
+		background:red;
+	}
+
+	abbr {
+
+	}
+	
+	code {
+		
+	}
+	
+	kbd {
+		
+	}
+	
+	/* Links
+	---------------------------------------- */
+
+	a {
+		font-weight:bold;
+		text-decoration:underline;
+	}
+
+	a:visited {
+
+	}
+
+	a:hover {
+
+	}
+}

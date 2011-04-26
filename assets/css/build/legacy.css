@@ -1,0 +1,552 @@
+/*
+  For older browsers that will just get one layout. Import it here.
+*/
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+/* Hide only visually, but have it available for screenreaders 
+   www.webaim.org/techniques/css/invisiblecontent/ 
+   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal! */
+/* Hide visually and from screenreaders, but maintain layout */
+/* 
+   Make webkit render the search input like a normal text field 
+*/
+/*
+  Sharpen an image if it has become blurry due to upscaling or downscaling
+  @see https://developer.mozilla.org/en/CSS/image-rendering
+*/
+/*
+  When photos are upscaled or downscaled, they often get blurry. Don't use
+  this on flat color images, they will still appear blurry.
+  @see https://developer.mozilla.org/en/CSS/image-rendering
+*/
+/*
+  Optimizes the rendering on images so they
+  appear faster, but at a lower quality. Useful for <video>
+*/
+/*
+  Removes any text from an element and replaces it with an image
+*/
+/* line 4, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/patterns/images/_image-replace.scss */
+.f-ir {
+  display: block;
+  text-indent: -9999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+}
+
+/* Allows a parent element to enclose the full height of the children
+ * elements when all of the children are floated.
+ * Normally the parent will have no height. 
+ * @see http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+/*
+  For blocks of content with media beside them.
+  Adding overflow hidden changes the way the content interacts with the float
+*/
+/*
+	Apply it to the wrapper div
+	<div>
+		<img class="content-image" />
+		<div class="content"></div>
+	</div>
+*/
+/*
+  Triggers hasLayout for IE7 and below. Fixes most IE issues
+*/
+/*
+  Cross-browser inline-block.
+*/
+/*
+  Prevents the resizing of text. Useful for mobile web apps
+*/
+/*
+  Adds URLs and abbreviations to the end of links in printed documents
+*/
+/*
+  Sets up some sensible text defaults for printed pages
+*/
+/*
+  Nicer text rendering in webkit and gecko
+  @see http://www.aestheticallyloyal.com/public/optimize-legibility/
+  @see http://files.christophzillgens.com/webkit-font-smoothing.html
+*/
+/* Block Elements
+---------------------------------------- */
+/*
+  Reset all COMMON block elements.
+  If you're using uncommon or invalid elements you will need to reset them yourself
+*/
+/* line 49, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+address,
+article,
+aside,
+audio,
+blockquote,
+body,
+button,
+dd,
+details,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+.copy h2, .copy
+h2,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+input,
+label,
+legend,
+li,
+nav,
+ol,
+p,
+pre,
+section,
+select,
+table,
+textarea,
+th,
+td,
+ul,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+/* Forms
+---------------------------------------- */
+/* line 62, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+input,
+label,
+select,
+button,
+textarea {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+/* Hand cursor on clickable input elements */
+/* line 72, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+label,
+input[type=button],
+input[type=submit],
+button {
+  cursor: pointer;
+}
+
+/* 
+	Form elements have different box-sizing models by default.
+	This will fix form styling woes across webkit, gecko and trident
+*/
+/* line 81, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+input,
+textarea {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 93, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Standardize radio and checkbox sizes */
+/* line 101, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+input[type=checkbox],
+input[type=radio] {
+  width: 13px;
+  height: 13px;
+}
+
+/* 
+	Make buttons play nice in IE:
+	@see www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ 
+*/
+/* line 113, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  overflow: visible;
+  width: auto;
+}
+
+/* Turn off scroll bars in IE unless needed */
+/* line 119, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+textarea {
+  overflow: auto;
+}
+
+/* HTML5 elements
+---------------------------------------- */
+/*
+  So that browsers render the new elements correctly. Only block elements need to be worried about as browsers render unknown elements as inline by default.
+*/
+/* line 129, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Text Elements
+---------------------------------------- */
+/*
+  Reset all COMMON text elements.
+  If you're using uncommon or invalid elements you have to reset them yourself
+*/
+/* line 170, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+a,
+abbr,
+b,
+body,
+br,
+cite,
+code,
+dfn,
+em,
+h1,
+.copy h2, .copy
+h2,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+input,
+kbd,
+label,
+mark,
+pre,
+q,
+samp,
+select,
+small,
+span,
+strong,
+sub,
+sup,
+textarea,
+var {
+  font-size: 100%;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  color: #000;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+/* line 184, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/*
+  Make lists display inline and not like list items
+  You must explicitly declare lists in copy to look the way they do
+  It will save you a whole lot of code
+*/
+/* line 194, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+li {
+  list-style: none;
+  display: block;
+}
+
+/*
+  Make links look like normal text. This way you don't need to
+  override styles when you create buttons and wrap blocks in links
+*/
+/* line 205, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+a:hover, a:active {
+  outline: none;
+}
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+/* line 211, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+/* line 217, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 221, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* Tables
+---------------------------------------- */
+/* line 227, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Media
+---------------------------------------- */
+/* Nicer image sizing in IE */
+/* line 235, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* fluid images and objects */
+/* line 240, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/reset/_desktop.scss */
+img, object, embed, video {
+  max-width: 100%;
+  display: block;
+}
+
+/*
+  Define all of your sass functions and mixins here
+*/
+/*
+  These are global styles with NO SCOPE
+*/
+/* Basic
+---------------------------------------- */
+/* line 7, ../src/layouts/desktop/_global.scss */
+html {
+  height: 101%;
+}
+
+/* Typography
+---------------------------------------- */
+/* line 22, ../src/layouts/desktop/_global.scss */
+body,
+input,
+label,
+select,
+button,
+textarea,
+table {
+  font-size: 16px;
+  font-family: Helvetica;
+  line-height: 21px;
+  color: #333;
+}
+
+/* These ::selection declarations have to be separate. 
+   They cause the browsers to freak out. */
+/* line 37, ../src/layouts/desktop/_global.scss */
+::-moz-selection {
+  background: #000;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* line 38, ../src/layouts/desktop/_global.scss */
+::selection {
+  background: #000;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* line 40, ../src/layouts/desktop/_global.scss */
+h1, .copy h2, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Forms
+---------------------------------------- */
+/* line 46, ../src/layouts/desktop/_global.scss */
+input:focus {
+  outline: 0;
+}
+
+/* line 50, ../src/layouts/desktop/_global.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+/* line 6, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/patterns/forms/_search-fields.scss */
+input[type="search"] ::-webkit-search-decoration {
+  display: none;
+}
+
+/* Define styles for blocks of content scoped within the .copy rather than
+   making them global. Global styles will be constantly overridden. */
+/* line 3, ../src/layouts/desktop/_copy.scss */
+.copy {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  /* 
+    Set the baseline on all elements directly inside a copy block
+    Inline elements won't take margin anyway
+  */
+  /* Block Elements
+  ---------------------------------------- */
+  /* Lists
+  ---------------------------------------- */
+  /* Code Blocks
+  ---------------------------------------- */
+  /* Headings
+  ---------------------------------------- */
+  /* Inline Elements
+  ---------------------------------------- */
+  /* Links
+  ---------------------------------------- */
+}
+/* line 11, ../src/layouts/desktop/_copy.scss */
+.copy > *, .copy section > * {
+  margin: 0 0 21px 0;
+}
+/* line 19, ../src/layouts/desktop/_copy.scss */
+.copy p code {
+  color: #777;
+}
+/* line 32, ../src/layouts/desktop/_copy.scss */
+.copy ul li {
+  list-style: disc;
+}
+/* line 41, ../src/layouts/desktop/_copy.scss */
+.copy li {
+  display: list-item;
+}
+/* line 60, ../src/layouts/desktop/_copy.scss */
+.copy pre {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background: #eee;
+  padding: 20px;
+}
+/* line 66, ../src/layouts/desktop/_copy.scss */
+.copy code {
+  font-family: monospace;
+}
+/* line 77, ../src/layouts/desktop/_copy.scss */
+.copy h1, .copy h2 {
+  font-size: 24px;
+  border-top: 3px solid #ccc;
+  padding-top: 21px;
+  margin-top: 42px;
+}
+/* line 84, ../src/layouts/desktop/_copy.scss */
+.copy h2 {
+  border-top: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0;
+  margin: 0 0 21px 0;
+}
+/* line 112, ../src/layouts/desktop/_copy.scss */
+.copy em {
+  font-style: italic;
+}
+/* line 116, ../src/layouts/desktop/_copy.scss */
+.copy strong {
+  font-weight: bold;
+}
+/* line 120, ../src/layouts/desktop/_copy.scss */
+.copy mark {
+  background: yellow;
+}
+/* line 124, ../src/layouts/desktop/_copy.scss */
+.copy ins {
+  background: green;
+}
+/* line 128, ../src/layouts/desktop/_copy.scss */
+.copy del {
+  background: red;
+}
+/* line 147, ../src/layouts/desktop/_copy.scss */
+.copy a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*
+  All layout styles should go in here. Seperate your layout styles from your design styles
+  Common layout styles should be mixins, patterns or modules
+*/
+/* line 5, ../src/layouts/desktop/_layout.scss */
+body {
+  margin: 0 auto 0 auto;
+  width: 500px;
+  float: none;
+  padding: 63px;
+}
+
+/* line 10, ../src/layouts/desktop/_layout.scss */
+nav {
+  margin-bottom: 21px;
+}
+/* line 12, ../src/layouts/desktop/_layout.scss */
+nav li {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 5, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/patterns/legacy/_inline-block.scss */
+nav li {
+  *display: inline;
+}
+/* line 12, ../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/patterns/legacy/_inline-block.scss */
+nav li {
+  *vertical-align: auto;
+}
+
+/*
+  Re-usable components. Should be modular and scope styles
+  Complex modules can go in their own files inside the modules folder
+*/
+/*
+  Specific form styles. Global form styles should go in _global.scss
+*/
+/* line 1, ../src/layouts/desktop/_type.scss */
+#site-title {
+  margin-bottom: 42px;
+}
+/* line 5, ../src/layouts/desktop/_type.scss */
+#site-title h1, #site-title .copy h2, .copy #site-title h2 {
+  font-size: 72px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 10.5px;
+}
+/* line 12, ../src/layouts/desktop/_type.scss */
+#site-title h2 {
+  font-size: 24px;
+}
