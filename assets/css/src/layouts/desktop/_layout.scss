@@ -13,20 +13,23 @@
 	  -webkit-repeating-linear-gradient(-35deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px);
 }
 
+html {
+	border-top:10px solid #000;
+}
+
 body {
 	@include center-horizontal(600px);
 	padding:$baseline*4;
-	background:#fff;
+	//background:#fff;
+	@extend .tartan;
+	
 }
 
 nav {
-	position:fixed;
-	top:0;
-	padding:10px 20px;
+	position:absolute;
+	top:30px;
 	font-size:14px;
-	border:3px solid #eee;
-	border-top:0;
-	background:#f5f5f5;
+	
 	ul {
 		@include center-horizontal(600px);
 	}
@@ -35,13 +38,20 @@ nav {
 		margin-right:15px;
 	}
 	a {
-		@include transition('.2s opacity');
+		@include transition('.2s all');
 		display:block;
 		font-weight:bold;
+		color:#fff;
 		&:hover {
 			text-decoration:underline;
 		}
 	}
+}
+
+body > section.copy {
+	background:#fff;
+	padding:50px 70px;
+	@include box-shadow(10px 10px 0 rgba(0,0,0,0.3));
 }
 
 #site-title {
@@ -49,13 +59,17 @@ nav {
 	margin-bottom:$baseline * 2;
 	
 	h1 {
-		font-size:72px;
+		font-size:100px;
 		font-weight:bold;
 		line-height:1;
 		margin-bottom:$baseline/2;
+		color:#fff;
+		text-shadow: 5px 5px 0 rgba(0,0,0,0.5);
 	}
 
 	h2 {
 		font-size:24px;
+		color:#fff;
+		text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
 	}
 }

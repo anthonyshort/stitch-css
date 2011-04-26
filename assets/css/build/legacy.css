@@ -358,7 +358,7 @@ button,
 textarea,
 table {
   font-size: 16px;
-  font-family: Helvetica;
+  font-family: Helvetica Neue;
   line-height: 21px;
   color: #333;
 }
@@ -434,7 +434,7 @@ input[type="search"] ::-webkit-search-decoration {
 }
 /* line 32, ../src/layouts/desktop/_copy.scss */
 .copy ul li {
-  list-style: disc;
+  list-style-type: disc;
 }
 /* line 41, ../src/layouts/desktop/_copy.scss */
 .copy li {
@@ -442,27 +442,27 @@ input[type="search"] ::-webkit-search-decoration {
 }
 /* line 60, ../src/layouts/desktop/_copy.scss */
 .copy pre {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
-  background: #eee;
+  -moz-box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  background: #501816;
   padding: 20px;
 }
-/* line 66, ../src/layouts/desktop/_copy.scss */
+/* line 64, ../src/layouts/desktop/_copy.scss */
+.copy pre code {
+  color: #fff;
+}
+/* line 69, ../src/layouts/desktop/_copy.scss */
 .copy code {
   font-family: monospace;
 }
-/* line 77, ../src/layouts/desktop/_copy.scss */
+/* line 80, ../src/layouts/desktop/_copy.scss */
 .copy h1, .copy h2 {
   font-size: 24px;
-  border-top: 3px solid #ccc;
-  padding-top: 21px;
   margin-top: 42px;
 }
-/* line 84, ../src/layouts/desktop/_copy.scss */
+/* line 85, ../src/layouts/desktop/_copy.scss */
 .copy h2 {
   border-top: none;
   font-size: 18px;
@@ -470,27 +470,27 @@ input[type="search"] ::-webkit-search-decoration {
   padding: 0;
   margin: 0 0 21px 0;
 }
-/* line 112, ../src/layouts/desktop/_copy.scss */
+/* line 113, ../src/layouts/desktop/_copy.scss */
 .copy em {
   font-style: italic;
 }
-/* line 116, ../src/layouts/desktop/_copy.scss */
+/* line 117, ../src/layouts/desktop/_copy.scss */
 .copy strong {
   font-weight: bold;
 }
-/* line 120, ../src/layouts/desktop/_copy.scss */
+/* line 121, ../src/layouts/desktop/_copy.scss */
 .copy mark {
   background: yellow;
 }
-/* line 124, ../src/layouts/desktop/_copy.scss */
+/* line 125, ../src/layouts/desktop/_copy.scss */
 .copy ins {
   background: green;
 }
-/* line 128, ../src/layouts/desktop/_copy.scss */
+/* line 129, ../src/layouts/desktop/_copy.scss */
 .copy del {
   background: red;
 }
-/* line 147, ../src/layouts/desktop/_copy.scss */
+/* line 148, ../src/layouts/desktop/_copy.scss */
 .copy a {
   font-weight: bold;
   text-decoration: underline;
@@ -501,73 +501,88 @@ input[type="search"] ::-webkit-search-decoration {
   Common layout styles should be mixins, patterns or modules
 */
 /* line 9, ../src/layouts/desktop/_layout.scss */
-.tartan {
+.tartan, body {
   background-color: #a0302c;
   background-image: -webkit-repeating-linear-gradient(transparent, transparent 50px, rgba(0, 0, 0, 0.4) 50px, rgba(0, 0, 0, 0.4) 53px, transparent 53px, transparent 63px, rgba(0, 0, 0, 0.4) 63px, rgba(0, 0, 0, 0.4) 66px, transparent 66px, transparent 116px, rgba(0, 0, 0, 0.5) 116px, rgba(0, 0, 0, 0.5) 166px, rgba(255, 255, 255, 0.2) 166px, rgba(255, 255, 255, 0.2) 169px, rgba(0, 0, 0, 0.5) 169px, rgba(0, 0, 0, 0.5) 179px, rgba(255, 255, 255, 0.2) 179px, rgba(255, 255, 255, 0.2) 182px, rgba(0, 0, 0, 0.5) 182px, rgba(0, 0, 0, 0.5) 232px, transparent 232px), -webkit-repeating-linear-gradient(180deg, transparent, transparent 50px, rgba(0, 0, 0, 0.4) 50px, rgba(0, 0, 0, 0.4) 53px, transparent 53px, transparent 63px, rgba(0, 0, 0, 0.4) 63px, rgba(0, 0, 0, 0.4) 66px, transparent 66px, transparent 116px, rgba(0, 0, 0, 0.5) 116px, rgba(0, 0, 0, 0.5) 166px, rgba(255, 255, 255, 0.2) 166px, rgba(255, 255, 255, 0.2) 169px, rgba(0, 0, 0, 0.5) 169px, rgba(0, 0, 0, 0.5) 179px, rgba(255, 255, 255, 0.2) 179px, rgba(255, 255, 255, 0.2) 182px, rgba(0, 0, 0, 0.5) 182px, rgba(0, 0, 0, 0.5) 232px, transparent 232px), -webkit-repeating-linear-gradient(-35deg, transparent, transparent 2px, rgba(0, 0, 0, 0.2) 2px, rgba(0, 0, 0, 0.2) 3px, transparent 3px, transparent 5px, rgba(0, 0, 0, 0.2) 5px);
 }
 
 /* line 16, ../src/layouts/desktop/_layout.scss */
+html {
+  border-top: 10px solid #000;
+}
+
+/* line 20, ../src/layouts/desktop/_layout.scss */
 body {
   margin: 0 auto 0 auto;
   width: 600px;
   float: none;
   padding: 84px;
-  background: #fff;
 }
 
-/* line 22, ../src/layouts/desktop/_layout.scss */
+/* line 28, ../src/layouts/desktop/_layout.scss */
 nav {
-  position: fixed;
-  top: 0;
-  padding: 10px 20px;
+  position: absolute;
+  top: 30px;
   font-size: 14px;
-  border: 3px solid #eee;
-  border-top: 0;
-  background: #f5f5f5;
 }
-/* line 30, ../src/layouts/desktop/_layout.scss */
+/* line 33, ../src/layouts/desktop/_layout.scss */
 nav ul {
   margin: 0 auto 0 auto;
   width: 600px;
   float: none;
 }
-/* line 33, ../src/layouts/desktop/_layout.scss */
+/* line 36, ../src/layouts/desktop/_layout.scss */
 nav li {
   float: left;
   margin-right: 15px;
 }
-/* line 37, ../src/layouts/desktop/_layout.scss */
+/* line 40, ../src/layouts/desktop/_layout.scss */
 nav a {
-  -moz-transition-property: .2s opacity;
-  -webkit-transition-property: .2s opacity;
-  -o-transition-property: .2s opacity;
-  transition-property: .2s opacity;
+  -moz-transition-property: .2s all;
+  -webkit-transition-property: .2s all;
+  -o-transition-property: .2s all;
+  transition-property: .2s all;
   -moz-transition-duration: 1s;
   -webkit-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
   display: block;
   font-weight: bold;
+  color: #fff;
 }
-/* line 41, ../src/layouts/desktop/_layout.scss */
+/* line 45, ../src/layouts/desktop/_layout.scss */
 nav a:hover {
   text-decoration: underline;
 }
 
-/* line 47, ../src/layouts/desktop/_layout.scss */
+/* line 51, ../src/layouts/desktop/_layout.scss */
+body > section.copy {
+  background: #fff;
+  padding: 50px 70px;
+  -moz-box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* line 57, ../src/layouts/desktop/_layout.scss */
 #site-title {
   margin-bottom: 42px;
 }
-/* line 51, ../src/layouts/desktop/_layout.scss */
+/* line 61, ../src/layouts/desktop/_layout.scss */
 #site-title h1, #site-title .copy h2, .copy #site-title h2 {
-  font-size: 72px;
+  font-size: 100px;
   font-weight: bold;
   line-height: 1;
   margin-bottom: 10.5px;
+  color: #fff;
+  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
 }
-/* line 58, ../src/layouts/desktop/_layout.scss */
+/* line 70, ../src/layouts/desktop/_layout.scss */
 #site-title h2 {
   font-size: 24px;
+  color: #fff;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
 }
 
 /*

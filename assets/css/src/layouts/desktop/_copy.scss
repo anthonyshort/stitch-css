@@ -30,7 +30,7 @@
 
 	ul {
 		li {
-			list-style:disc;
+			list-style-type:disc;
 		}
 	}
 
@@ -58,9 +58,12 @@
 	---------------------------------------- */
 
 	pre {
-		@include border-radius(5px);
-		background:#eee;
+		@include box-shadow(3px 3px 0 rgba(0,0,0,0.2));
+		background:#501816;
 		padding:20px;
+		code {
+			color:#fff;
+		}
 	}
 	
 	code {
@@ -71,13 +74,11 @@
 	---------------------------------------- */
 
 	h1,h2,h3,h4,h5,h6 {
-
+		
 	}
 
 	h1 {
 		font-size:24px;
-		border-top:3px solid #ccc;
-		padding-top:$baseline;
 		margin-top:$baseline*2;
 	}
 
