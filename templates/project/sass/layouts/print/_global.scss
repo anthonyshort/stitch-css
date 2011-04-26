@@ -1,6 +1,0 @@
-body {
-	// Append links to anchors
-	@include append-content;
-	// Make text printer-friendly
-	@include printable-text;
-}
