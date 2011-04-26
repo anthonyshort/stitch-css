@@ -1,7 +1,5 @@
 # Stitch CSS Pattern Framework
 
-# Patterns
-
 Patterns are chunks of styles that we use on every project. These chunks of styles generally perform a particular function, such as clearing floats. Having to write these styles each time is annoying and the function of these chunks of code in our stylesheets is obscure. 
 
 By breaking these patterns into reusable classes and mixins we:
@@ -11,6 +9,36 @@ By breaking these patterns into reusable classes and mixins we:
 * Reduce the size of our stylesheet
 * Only have to write them once
 * Are updatable when newer methods are discovered by updating the framework
+
+# Get It
+
+Install the Rubygem.
+
+````
+gem install compass-stitch
+```` 
+
+Then in your compass projects, you have access to the patterns. To import all patterns (except the reset) use:
+
+````
+@import 'stitch/patterns';
+````
+
+At the top of your stylesheet. 
+
+# Patterns
+
+To see all of the patterns available, look at:
+
+https://github.com/anthonyshort/stitch-css/tree/master/stylesheets/stitch/patterns
+
+By using @import 'stitch/patterns'; you will have access to all of the pattern mixins.
+
+# Reset
+
+Stitch includes a CSS reset. This is a new reset I'm working on. It resets everything back to it's raw text form so that it's easy to build from.
+
+View the reset here: https://github.com/anthonyshort/stitch-css/blob/master/stylesheets/stitch/patterns/reset/_desktop.scss
 
 # Helpers
 
