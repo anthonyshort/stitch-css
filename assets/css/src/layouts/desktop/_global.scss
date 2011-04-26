@@ -29,7 +29,7 @@ table {
 /* These ::selection declarations have to be separate. 
    They cause the browsers to freak out. */
 @mixin text-selection {
-	 background: #000;
+	 background: hsl(2, 57%, 40%);
 	      color: #fff;
 	text-shadow: none;
 }

@@ -364,14 +364,14 @@ table {
    They cause the browsers to freak out. */
 /* line 37, ../../../src/layouts/desktop/_global.scss */
 ::-moz-selection {
-  background: #000;
+  background: #a0302c;
   color: #fff;
   text-shadow: none;
 }
 
 /* line 38, ../../../src/layouts/desktop/_global.scss */
 ::selection {
-  background: #000;
+  background: #a0302c;
   color: #fff;
   text-shadow: none;
 }
@@ -498,32 +498,74 @@ input[type="search"] ::-webkit-search-decoration {
   All layout styles should go in here. Seperate your layout styles from your design styles
   Common layout styles should be mixins, patterns or modules
 */
-/* line 5, ../../../src/layouts/desktop/_layout.scss */
-body {
-  margin: 0 auto 0 auto;
-  width: 500px;
-  float: none;
-  padding: 63px;
+/* line 9, ../../../src/layouts/desktop/_layout.scss */
+.tartan {
+  background-color: #a0302c;
+  background-image: -webkit-repeating-linear-gradient(transparent, transparent 50px, rgba(0, 0, 0, 0.4) 50px, rgba(0, 0, 0, 0.4) 53px, transparent 53px, transparent 63px, rgba(0, 0, 0, 0.4) 63px, rgba(0, 0, 0, 0.4) 66px, transparent 66px, transparent 116px, rgba(0, 0, 0, 0.5) 116px, rgba(0, 0, 0, 0.5) 166px, rgba(255, 255, 255, 0.2) 166px, rgba(255, 255, 255, 0.2) 169px, rgba(0, 0, 0, 0.5) 169px, rgba(0, 0, 0, 0.5) 179px, rgba(255, 255, 255, 0.2) 179px, rgba(255, 255, 255, 0.2) 182px, rgba(0, 0, 0, 0.5) 182px, rgba(0, 0, 0, 0.5) 232px, transparent 232px), -webkit-repeating-linear-gradient(180deg, transparent, transparent 50px, rgba(0, 0, 0, 0.4) 50px, rgba(0, 0, 0, 0.4) 53px, transparent 53px, transparent 63px, rgba(0, 0, 0, 0.4) 63px, rgba(0, 0, 0, 0.4) 66px, transparent 66px, transparent 116px, rgba(0, 0, 0, 0.5) 116px, rgba(0, 0, 0, 0.5) 166px, rgba(255, 255, 255, 0.2) 166px, rgba(255, 255, 255, 0.2) 169px, rgba(0, 0, 0, 0.5) 169px, rgba(0, 0, 0, 0.5) 179px, rgba(255, 255, 255, 0.2) 179px, rgba(255, 255, 255, 0.2) 182px, rgba(0, 0, 0, 0.5) 182px, rgba(0, 0, 0, 0.5) 232px, transparent 232px), -webkit-repeating-linear-gradient(-35deg, transparent, transparent 2px, rgba(0, 0, 0, 0.2) 2px, rgba(0, 0, 0, 0.2) 3px, transparent 3px, transparent 5px, rgba(0, 0, 0, 0.2) 5px);
 }
 
-/* line 10, ../../../src/layouts/desktop/_layout.scss */
+/* line 16, ../../../src/layouts/desktop/_layout.scss */
+body {
+  margin: 0 auto 0 auto;
+  width: 600px;
+  float: none;
+  padding: 84px;
+  background: #fff;
+}
+
+/* line 22, ../../../src/layouts/desktop/_layout.scss */
 nav {
-  margin-bottom: 21px;
+  position: fixed;
+  top: 0;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: 3px solid #eee;
+  border-top: 0;
+  background: #f5f5f5;
 }
-/* line 12, ../../../src/layouts/desktop/_layout.scss */
-nav li {
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
-  display: inline-block;
-  vertical-align: middle;
+/* line 30, ../../../src/layouts/desktop/_layout.scss */
+nav ul {
+  margin: 0 auto 0 auto;
+  width: 600px;
+  float: none;
 }
-/* line 5, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/patterns/legacy/_inline-block.scss */
+/* line 33, ../../../src/layouts/desktop/_layout.scss */
 nav li {
-  *display: inline;
+  float: left;
+  margin-right: 15px;
 }
-/* line 12, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-stitch-0.0.2/stylesheets/stitch/patterns/legacy/_inline-block.scss */
-nav li {
-  *vertical-align: auto;
+/* line 37, ../../../src/layouts/desktop/_layout.scss */
+nav a {
+  -moz-transition-property: .2s opacity;
+  -webkit-transition-property: .2s opacity;
+  -o-transition-property: .2s opacity;
+  transition-property: .2s opacity;
+  -moz-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  display: block;
+  font-weight: bold;
+}
+/* line 41, ../../../src/layouts/desktop/_layout.scss */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* line 47, ../../../src/layouts/desktop/_layout.scss */
+#site-title {
+  margin-bottom: 42px;
+}
+/* line 51, ../../../src/layouts/desktop/_layout.scss */
+#site-title h1, #site-title .copy h2, .copy #site-title h2 {
+  font-size: 72px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 10.5px;
+}
+/* line 58, ../../../src/layouts/desktop/_layout.scss */
+#site-title h2 {
+  font-size: 24px;
 }
 
 /*
@@ -533,18 +575,3 @@ nav li {
 /*
   Specific form styles. Global form styles should go in _global.scss
 */
-/* line 1, ../../../src/layouts/desktop/_type.scss */
-#site-title {
-  margin-bottom: 42px;
-}
-/* line 5, ../../../src/layouts/desktop/_type.scss */
-#site-title h1, #site-title .copy h2, .copy #site-title h2 {
-  font-size: 72px;
-  font-weight: bold;
-  line-height: 1;
-  margin-bottom: 10.5px;
-}
-/* line 12, ../../../src/layouts/desktop/_type.scss */
-#site-title h2 {
-  font-size: 24px;
-}
