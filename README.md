@@ -14,13 +14,13 @@ By breaking these patterns into reusable classes and mixins we:
 
 Install the Rubygem.
 
-	gem install compass-stitch
+	gem install stitch
 	
 # Create a new project
 
 Now create your bare project that includes compass-stitch:
 
-	compass create my-project --bare -r compass-stitch
+	compass create my-project --bare -r stitch
 	
 Install the project template:
 
