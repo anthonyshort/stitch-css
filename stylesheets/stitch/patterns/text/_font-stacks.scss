@@ -1,0 +1,15 @@
+/*
+  These provide basic font stacks with fallbacks. You can add your own fonts to the stack
+*/
+
+@mixin sans-serif($prepend:false) {
+	font-family: join($prepend,"Helvetica Neue", Helvetica, Arial, sans-serif);
+}
+
+@mixin serif($prepend:false) {
+	font-family: join($prepend,"Georgia", Times New Roman, Times, sans-serif);
+}
+
+@mixin monospace($prepend:false) {
+	font-family: join($prepend,"Monaco", Courier New, monospace);
+}

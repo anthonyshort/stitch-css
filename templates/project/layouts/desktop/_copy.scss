@@ -26,11 +26,15 @@
 	---------------------------------------- */
 
 	ul {
-
+		li {
+			list-style-type:disc;
+		}
 	}
 
 	ol {
-
+		li {
+			list-style-type:decimal;
+		}
 	}
 
 	li {
@@ -54,6 +58,10 @@
 
 	pre {
 
+	}
+	
+	code {
+		
 	}
 	
 	/* Headings

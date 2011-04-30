@@ -1,9 +1,5 @@
 /* Block Elements
 ---------------------------------------- */
-/*
-  Reset all COMMON block elements.
-  If you're using uncommon or invalid elements you will need to reset them yourself
-*/
 address, 
 article, 
 aside, 
@@ -63,6 +59,7 @@ textarea {
 	display        : inline-block;
 	vertical-align : middle;
 	white-space    : normal;
+	font           : inherit;
 }
 
 /* Hand cursor on clickable input elements */
@@ -117,7 +114,7 @@ input[type="submit"] {
 
 /* Turn off scroll bars in IE unless needed */
 textarea {
-  overflow : auto; 
+  overflow:auto; 
 }
 
 /* HTML5 elements
@@ -132,15 +129,10 @@ footer, header, hgroup, menu, nav, section {
 
 /* Text Elements
 ---------------------------------------- */
-/*
-  Reset all COMMON text elements.
-  If you're using uncommon or invalid elements you have to reset them yourself
-*/
 a, 
 abbr, 
 b, 
 body,
-br, 
 cite, 
 code, 
 dfn, 
@@ -168,16 +160,70 @@ sup,
 textarea, 
 var
 {
-  font-size       : 100%;
-  font-family     : sans-serif;
-  font-style      : normal;
-  font-weight     : normal;
-  font-variant    : normal;
-  color           : #000;
-  vertical-align  : baseline;
-  text-decoration : none;
+
 }
 
+/*
+  Set the alignment of text to touch the baseline
+*/
+body {
+	vertical-align:baseline;
+}
+
+/*
+  Make all the elements use the same font family by default
+*/
+body,
+pre,
+code,
+var,
+kbd {
+	font-family:sans-serif;
+}
+
+/*
+  Make all text the same size
+*/
+body,
+small,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size:100%;
+	font-weight:normal;
+	line-height:1;
+}
+
+/*
+  Remove default text decoration
+*/
+del,
+abbr,
+mark {
+	text-decoration:none;
+}
+
+/*
+  Remove default font weight
+*/
+b,
+strong {
+	font-weight:normal;
+}
+
+/*
+  Remove default font style
+*/
+em {
+	font-style:normal;
+}
+
+/*
+  Reset quotations
+*/
 blockquote:before,
 blockquote:after,
 q:before,
@@ -201,6 +247,9 @@ li {
   override styles when you create buttons and wrap blocks in links
 */
 a {
+  font-weight:normal;
+  color:inherit;
+  text-decoration:none;
   &:hover,
   &:active {
     outline: none; 
