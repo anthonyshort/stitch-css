@@ -1,7 +1,7 @@
 /*
   Removes any text from an element and replaces it with an image
 */
-.stitch-ir {
+.stitch-image-replace {
 	display             : block;
 	text-indent         : -9999em;
 	overflow            : hidden;
@@ -11,7 +11,7 @@
 }
 
 @mixin image-replace($img) {
-	@extend .f-ir;
+	@extend .stitch-image-replace;
 	height:image_height($img);
 	width:image_width($img);
 }

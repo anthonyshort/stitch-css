@@ -1,4 +1,4 @@
-@include 'compass/css3';
+@include 'compass/css3/images';
 
 @mixin vertical-gradient($from,$to) {
 	@include background(

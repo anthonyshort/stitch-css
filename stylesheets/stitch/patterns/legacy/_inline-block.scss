@@ -1,7 +1,7 @@
 /*
   Cross-browser inline-block.
 */
-@mixin inline-block {
+.stitch-inline-block {
 	& {
 		*display : inline;
 	}
@@ -12,4 +12,8 @@
 	& {
 		*vertical-align : auto; 
 	}
+}
+
+@mixin inline-block {
+	@extend .stitch-inline-block;
 }

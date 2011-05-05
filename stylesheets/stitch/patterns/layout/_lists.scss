@@ -1,0 +1,35 @@
+@import '../legacy/inline-block';
+@import 'clear-floats';
+
+.stitch-horizontal-list {
+	@include clear-floats(true);
+	li {
+		float:left;
+		display:block;
+	}
+}
+
+.stitch-inline-list {
+	li {
+		@extend .stitch-inline-block;
+	}
+}
+
+@mixin horizontal-list {
+	@extend .stitch-horizontal-list;
+}
+
+@mixin horizontal-navigation {
+	a {
+		display:block;
+	}
+	ul,ol {
+		@include horizontal-list;
+	}
+}
+
+@mixin vertical-navigation {
+	a,li {
+		display:block;
+	}
+}

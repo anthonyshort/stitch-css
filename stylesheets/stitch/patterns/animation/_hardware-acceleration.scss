@@ -1,6 +1,6 @@
 /*
   Forces the browser to render animation on the element with hardware acceleration
 */
-@mixin hardware-acceleration {
+@mixin use-hardware-acceleration {
   -webkit-transform:translateZ(0);
 }
