@@ -1,0 +1,82 @@
+/* Variables
+---------------------------------------- */
+// So we can determine if the base font size has been set
+$stitch-base-font-size:16px;
+
+/* Functions
+---------------------------------------- */
+@function relative-unit($size,$context:$stitch-base-font-size,$unit:em) {
+	@return #{$size/$context}$unit;
+}
+
+/* Mixins
+---------------------------------------- */
+
+// Call this first
+@mixin set-base-font-size($size,$rem:true) {
+	$stitch-base-font-size:$size;
+	@if $rem == true {
+		html {
+			font-size:$size;
+		}
+	}
+}
+
+@mixin base-font-size {
+	font-size:$stitch-base-font-size;
+}
+
+@mixin relative-font-size($size,$context:$stitch-base-font-size,$root:false) {
+
+	// We don't want it relative to the root
+	@if $root == false {
+		font-size:relative-unit($size,$context,em);
+	}
+
+	// We want it in rems
+	@else {
+		// For legacy browsers
+		font-size:$size;
+		// For rem-capable browsers
+		font-size:relative-unit($size,$stitch-base-font-size,rem);
+	}
+
+}
+
+/* Example
+---------------------------------------- */
+
+// Make sure I set the base font size, otherwise it will use the default 16px
+// This adds the font size to the html element for rem font sizing
+// I can turn this off by setting the variable $rem:false
+@include set-base-font-size(20px);
+
+#id {
+	/* Relative to a given context - 18px */
+	@include relative-font-size(16px,18px);
+	
+	/* Relative to the root font size (rem) */
+	@include relative-font-size(10px,$root:true);
+}
+
+// If I wanted to work with font sizes within a module...
+#id2 {
+	/* Set a base font size */
+	$size:16px;
+	font-size:$size;
+	
+	p {
+		/* (12px) Relative to the font size for this module */
+		@include relative-font-size(12px,$size);
+	} 
+
+	p {
+		/* (10px) Or make it relative to the root using rems */
+		@include relative-font-size(10px,$root:true);
+	}
+}
+
+// We can also do dimensions
+#id {
+	width:relative-unit(500px);
+}
