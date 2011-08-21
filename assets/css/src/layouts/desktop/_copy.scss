@@ -54,16 +54,34 @@
 
 	}
 	
+	.feature-list {
+		font-size:18px;
+		line-height:1.3;
+		color:$color-red;
+		li {
+			margin-bottom:$baseline / 2;
+			list-style:none;
+		}
+	}
+	
 	/* Code Blocks
 	---------------------------------------- */
 
 	pre {
 		@include box-shadow(3px 3px 0 rgba(0,0,0,0.2));
+		@include border-radius(5px);
 		background:#501816;
 		padding:20px;
+		margin-bottom: $baseline;
 		code {
 			color:#fff;
 		}
+	}
+	
+	pre:first-of-type {
+		font-size:18px;
+		text-shadow: 0 0 3px rgba(255,255,255,0.8);
+		margin-bottom:$baseline * 2;
 	}
 	
 	code {
@@ -78,25 +96,35 @@
 	}
 
 	h1 {
-		font-size:24px;
+		font-size:30px;
 		margin-top:$baseline*2;
 	}
 
 	h2 {
-		@extend h1;
 		border-top:none;
-		font-size:18px;
+		font-size:24px;
 		font-weight:bold;
 		padding:0;
-		margin:0 0 $baseline 0;
+		margin:$baseline * 2 0 $baseline 0;
+		color:black;
 	}
 
 	h3 {
-
+		font-size:24px;
+		margin-top:$baseline * 3;
+		margin-bottom:$baseline;
+		
+		color:black;
 	}
 
 	h4 {
-
+		font-size:18px;
+		font-weight:bold;
+		margin-top:$baseline * 2;
+		color:$color-red;
+		margin-bottom:$baseline / 2;
+		border-top:1px dashed #bbb;
+		padding-top:$baseline * 1.5 - 1;
 	}
 
 	h5 {

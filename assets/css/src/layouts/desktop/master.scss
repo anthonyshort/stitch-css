@@ -1,6 +1,11 @@
 @import "compass";
 @import "stitch/patterns";
 @import "stitch/reset";
+
+$sidebar-width: 180px;
+$color-grey: darken(#fff,5%);
+$color-red: #501816;
+
 @import "global";
 @import "copy";
 @import "layout";

@@ -1,12 +1,9 @@
-$sidebar-width: 200px;
-
 body {
-	background:#501816;
-	padding-left:$sidebar-width;
-	padding-right:40px;
+	background: $color-red;
 }
 
 nav {
+	@include box-shadow(5px 0px 10px rgba(0,0,0,0.1));
 	float:left;
 	position:fixed;
 	overflow:auto;
@@ -15,25 +12,35 @@ nav {
 	left:0;
 	width:$sidebar-width;
 	background:#fff;
+	padding-top:30px;
+	padding-bottom:60px;
+	padding-left:30px;
+	padding-right:30px;
+	
+	h1 {
+		font-size:16px;
+		color:#999;
+		
+		& + a {
+			font-weight:bold;
+			color:$color-red;
+			text-decoration:underline;
+		} 
+	}
 }
 
-body > header,
-body > section.copy {
-	width:500px;
-	padding-left:80px;
+#body {
+	@include box-shadow(5px 0px 10px rgba(0,0,0,0.9));
+	background:$color-grey;
+	width:600px;
+	padding-left: $sidebar-width + 80px + 60px;
 	padding-right:100px;
-	background:darken(#fff,5%);
-}
-
-body > section.copy {
 	padding-bottom:100px;
+	padding-top:40px;
 }
 
 #site-title {
-	
-	padding-top:40px;
-	padding-bottom:$baseline * 2;
-	
+	margin-bottom: $baseline * 2;
 	h1 {
 		font-size:100px;
 		font-weight:bold;
@@ -45,5 +52,39 @@ body > section.copy {
 	h2 {
 		font-size:24px;
 		color: lighten(#000,60%);
+	}
+}
+
+#toc {
+	
+	margin-top:$baseline;
+	
+	a {
+		display:block;
+	}
+	
+	& > li > a {
+		font-size:16px;
+		font-weight: bold;
+		line-height:30px;
+		color:$color-red;
+	}
+	
+	& > li > ul > li > ul a:before {
+		content: '- ';
+	}
+	
+	& > li > ul > li > a {
+		font-size:16px;
+		font-weight:bold;
+		padding-top:10px;
+		line-height:30px;
+		color:$color-red;
+	}
+	
+	& > li > ul > li > ul a {
+		font-size:12px;
+		color:#999;
+		line-height:1.4;
 	}
 }

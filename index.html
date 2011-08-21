@@ -8,78 +8,671 @@
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+	<nav>
+		<h1>Stitch (0.1.0)</h1>
+		<a href="http://github.com/anthonyshort/stitch-css/">Github Repo</a>
+		<ul id="toc">
+			
+		</ul>
+	</nav>
+	<div id="body">
 	<header>
 		<hgroup id="site-title">
 			<h1>Stitch</h1>
 			<h2>A CSS Pattern Framework for Compass</h2>
 		</hgroup>
 	</header>
-	<nav>
-		<ul>
-			<li><a href="#overview">Overview</a></li>
-			<li><a href="#install">Installation</a></li>
-			<li><a href="#examples">Examples</a></li>
-			<li><a href="#reference">Reference</a></li>
-			<li><a href="#rules">Best Practice</a></li>
-		</ul>
-	</nav>
-	<section class="copy">
-		<section id="quick-install">
-			<pre><code>gem install stitch</code></pre>
-			<ul>
-				<li>Common CSS patterns in the form of <strong>mixins and classes</strong></li>
-				<li><strong>Desktop browser reset</strong> that follows the conventions of the framework</li>
-				<li><strong>Install patterns into your directory</strong> using commands so you don't have to think about common tasks, like adding a font or adding a new layout.</li>
-				<li>It's <strong>community-driven</strong>. When someone adds a new pattern everyone benefits.</li>
-			</ul>
-		</section>
-		<section id="overview">
-		<h1>Overview</h1>
-		<p>Stitch is an extension for Compass that gives you quick access to CSS design patterns you use every day. These patterns generally perform a particular function. We rewrite these styles on every project and the function of these particular blocks of styles is obscure in our code. We need a way to abstract these common patterns.</p>
-		<p>Stitch is more than a framework. It's pattern ideology extends further than just chunks of code. <strong>It aims to create patterns in your workflow and the structure of your CSS to change the way you write CSS.</strong></p> 
-		</section>
-		
-		<ul>
-			<li>Make our stylesheets free from clutter</li>
-			<li>Give our styles more meaning</li>
-			<li>Reduce the size of our working stylesheet</li>
-			<li>Patterns are written once</li>
-			<li>Patterns are updatable when newer methods are discovered</li>
-			<li>Creates a set of conventions to follow</li>
-			<li>Stop worrying about where to put styles</li>
-		</ul>
-
-		<section id="installation">
-			<h1>Installation</h1>
-		</section>
-		
-		<section id="examples">
-		<h1>Example</h1>
-		<p>Standard CSS code might look like this:</p>
-		<pre><code>#id {
 	
+	<section class="copy">
+<pre><code>gem install stitch
+</code></pre>
+
+<ul class="feature-list">
+<li>Common CSS patterns in the form of <strong>mixins and classes</strong></li>
+<li><strong>Browser reset</strong> that gently makes every browser equal and sets you up for further styling</li>
+<li>It&#8217;s <strong>community-driven</strong>. When someone adds a new pattern everyone benefits.</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>Stitch is an extension for <a href="http://compass-style.org/" title="Compass">Compass</a> that gives you quick access to CSS design patterns you use every day. It&#8217;s pattern ideology extends further than just chunks of code. <strong>It aims to create patterns in your workflow and the structure of your CSS to change the way you write CSS.</strong></p>
+
+<ul>
+<li>Make our stylesheets free from clutter</li>
+<li>Give our styles more meaning</li>
+<li>Reduce the size of our working stylesheet</li>
+<li>Patterns are written once</li>
+<li>Patterns are updatable when newer methods are discovered</li>
+</ul>
+
+<h2>Usage</h2>
+
+<p>To get Stitch, grab the gem</p>
+
+<pre><code>sudo gem install stitch
+</code></pre>
+
+<p>Then include it in your Compass <code>config.rb</code> file,</p>
+
+<pre><code>require 'stitch'
+</code></pre>
+
+<p>Last, just include it at the top of your Sass file,</p>
+
+<pre><code>@import 'stitch'
+</code></pre>
+
+<h4>Reset</h4>
+
+<p>Stitch comes with a browser reset. It reduces all text elements, list and form elements back to their defaults. By resetting everything back to standard text and avoiding global styles, you minimise the amount of CSS you need to write further down the track.</p>
+
+<pre><code>@import 'stitch/reset'
+</code></pre>
+
+<h4>Patterns</h4>
+
+<p>Patterns are mixins for common CSS coding patterns. There are dozens of patterns you can use. These are imported separately from the reset:</p>
+
+<pre><code>@import 'stitch/patterns'
+</code></pre>
+
+<p>All of the patterns are listed below.</p>
+
+<h3 id="accessibility">Accessibility</h3>
+
+<h4 id="hide_from_all">hide-from-all</h4>
+
+<p>Hides content from both screen readers and browsers.</p>
+
+<pre><code>@include hide-from-all
+</code></pre>
+
+<h4 id="screenreaders_only">screenreaders-only</h4>
+
+<p>Hides content from browsers, but leaves it available for screen readers.</p>
+
+<pre><code>@include screenreaders-only
+</code></pre>
+
+<h4 id="invisible">invisible</h4>
+
+<p>Hide content from both screen readers and browsers, but maintain the layout.</p>
+
+<pre><code>@include invisible
+</code></pre>
+
+<h3 id="animation">Animation</h3>
+
+<h4 id="enable_hardware_acceleration">enable-hardware-acceleration</h4>
+
+<p>Enables hardware acceleration for this element. This creates smoother animations.</p>
+
+<pre><code>@include enable-hardware-acceleration
+</code></pre>
+
+<h4 id="easing_functions">Easing Functions</h4>
+
+<p>These easing functions allow you to replicate the easing from jQuery and other javascript frameworks. They are used in conjunction with CSS animations and CSS transitions.</p>
+
+<pre><code>#id {
+    -webkit-animation: slideOut 1s linear()
 }
 </code></pre>
-		<p>Let's break that down into something more manageable;</p>
-		<pre><code>#id {
-	@include clear-floats;
+
+<p>or</p>
+
+<pre><code>#id {
+    -webkit-transition: opacity 1s linear()
 }
 </code></pre>
-		</section>
+
+<p>These easing functions available:</p>
+
+<ul>
+<li>linear</li>
+<li>ease</li>
+<li>ease-in</li>
+<li>ease-in-quad</li>
+<li>ease-in-cubic</li>
+<li>ease-in-quart</li>
+<li>ease-in-quint</li>
+<li>ease-in-sine</li>
+<li>ease-in-expo</li>
+<li>ease-in-circ</li>
+<li>ease-out-quad</li>
+<li>ease-out-cubic</li>
+<li>ease-out-quart</li>
+<li>ease-out-quint</li>
+<li>ease-out-sine</li>
+<li>ease-out-expo</li>
+<li>ease-out-circ</li>
+<li>ease-in-out-quad</li>
+<li>ease-in-out-cubic</li>
+<li>ease-in-out-quart</li>
+<li>ease-in-out-quint</li>
+<li>ease-in-out-sine</li>
+<li>ease-in-out-expo</li>
+<li>ease-in-out-circ</li>
+</ul>
+
+<h3 id="forms">Forms</h3>
+
+<h4 id="reset_search_field">reset-search-field</h4>
+
+<p>Resets the search input in webkit to a standard text input</p>
+
+<pre><code>input[type='search'] {
+    @include reset-search-field;
+}
+</code></pre>
+
+<h3 id="images">Images</h3>
+
+<h4 id="sharpen_image">sharpen-image</h4>
+
+<p>Sharpen an image if it has become blurry due to upscaling or downscaling</p>
+
+<pre><code>@include sharpen-image;
+</code></pre>
+
+<p>https://developer.mozilla.org/en/CSS/image-rendering</p>
+
+<h4 id="high_quality_image">high-quality-image</h4>
+
+<p>When photos are upscaled or downscaled, they often get blurry. Don&#8217;t use this on flat color images, they will still appear blurry.</p>
+
+<pre><code>@include high-quality-image;
+</code></pre>
+
+<p>https://developer.mozilla.org/en/CSS/image-rendering</p>
+
+<h4 id="low_quality_image">low-quality-image</h4>
+
+<p>Optimizes the rendering on images so they appear faster, but at a lower quality. Useful for <code>&lt;video&gt;</code></p>
+
+<pre><code>@include low-quality-image
+</code></pre>
+
+<h4 id="image_replace">image-replace</h4>
+
+<p>Replaces text with an image. Just pass it a path to an image in your images directory.</p>
+
+<pre><code>#logo {
+    @include image-replace('logos/company-logo');
+}
+</code></pre>
+
+<h4 id="vertical_gradient">vertical-gradient</h4>
+
+<p>Create a really simple, 2 colour gradient. This has two parameters:</p>
+
+<ul>
+<li>$to - The start colour</li>
+<li>$from - The end colour</li>
+</ul>
+
+<p>This uses CSS3 gradients, so don&#8217;t expect this to work in IE.</p>
+
+<pre><code>@include vertical-gradient(#000,#fff);
+</code></pre>
+
+<h4 id="horizontal_gradient">horizontal-gradient</h4>
+
+<p>Create a really simple, 2 colour gradient. This has two parameters:</p>
+
+<ul>
+<li>$to - The start colour</li>
+<li>$from - The end colour</li>
+</ul>
+
+<p>This uses CSS3 gradients, so don&#8217;t expect this to work in IE.</p>
+
+<pre><code>@include horizontal-gradient(#000,#fff);
+</code></pre>
+
+<h3 id="layout">Layout</h3>
+
+<h4 id="center_horizontally">center-horizontally</h4>
+
+<p>Centre a block horizontally as you would any standard container element. This requires a width to work.</p>
+
+<pre><code>@include center-horizontally(500px);
+</code></pre>
+
+<h4 id="clear_floats">clear-floats</h4>
+
+<p>Clear floated children of an element using the <a href="http://nicolasgallagher.com/micro-clearfix-hack/">micro-clearfix</a>.</p>
+
+<pre><code>@include clear-floats
+</code></pre>
+
+<h4 id="columns">columns</h4>
+
+<p>Easily create text columns using CSS3 columns. Takes 4 parameters:</p>
+
+<ul>
+<li>$count - Number of columns. Default is 2</li>
+<li>$gap - The space between the columns. Default is 20px</li>
+<li>$width - The width of the columns. Default is auto.</li>
+<li>$rule - Add a border in between the columns. Default is <code>none</code></li>
+</ul>
+
+<p>These are named parameters, so you can use them with or without the parameter name. Without the parameter name, they must be in order.</p>
+
+<pre><code>@include text-columns(2,20px);
+</code></pre>
+
+<p>But with the parameter name they can be in any order.</p>
+
+<pre><code>@include text-columns($count:2,$width:50px)
+</code></pre>
+
+<h4 id="force_scrollbar">force-scrollbar</h4>
+
+<p>In most browsers, the scroll bar isn&#8217;t on the side of the window unless the content extends past the bottom of the window. This can sometimes cause the page to look like it is jumping to the left when extra content is added to the page or when moving between pages. This mixin forces to the scroll bar on the window at all times so that the content does not jump across.</p>
+
+<pre><code>html {
+    @include force-scrollbar
+}
+</code></pre>
+
+<h4 id="media_block">media-block</h4>
+
+<p><a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">Media blocks</a> are a perfect example of how you can save time by using patterns. A media block consists of a float element and a non-floated element. The prime example of this is a block of content with a thumbnail next to it. You don&#8217;t want the content to wrap below the image. You have a couple of choices:</p>
+
+<ul>
+<li>Make the container relative, pad it in the width of the image so the content sits next to it and position the image absolute</li>
+<li>Float the image and content left and give them both a width</li>
+<li>Float the image left and give the content overflow:hidden</li>
+</ul>
+
+<p>Read <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">this article</a> by Nicole Sullivan for a better description of a media block.</p>
+
+<p>This mixin has 4 parameters</p>
+
+<ul>
+<li>$position - The position of the image. Default is left</li>
+<li>$spacing - The distance between the image and the content. Default is 0</li>
+<li>$media - The selector for the image/media element. Default is <code>.media</code></li>
+<li>$block - The selector for the content block. Default is <code>.block</code></li>
+</ul>
+
+<p>Here&#8217;s an example. Suppose we have this markup:</p>
+
+<pre><code>&lt;article class="news-item"&gt;
+    &lt;img class="media" /&gt;
+    &lt;div class="block"&gt;
+        Content
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+
+<p>We want the image positioned on the left with 20px spacing between the image and the content.</p>
+
+<pre><code>.news-item {
+    @include media-block(left,20px);
+}
+</code></pre>
+
+<p>But suppose we wanted more semantic classes:</p>
+
+<pre><code>&lt;article class="news-item"&gt;
+    &lt;img class="news-item-image" /&gt;
+    &lt;div class="news-item-content"&gt;
+        Content
+    &lt;/div&gt;
+&lt;/article&gt;
+</code></pre>
+
+<p>We could fill out the class parameters too:</p>
+
+<pre><code>.news-item {
+    @include media-block(left,20px,'.news-item-image','.news-item-content');
+}
+</code></pre>
+
+<h3 id="legacy_support">Legacy Support</h3>
+
+<h4 id="has_layout">has-layout</h4>
+
+<p>Trigger hasLayout in IE7 and below.</p>
+
+<pre><code>@include has-layout;
+</code></pre>
+
+<h4 id="inline_block">inline-block</h4>
+
+<p>Make an element display inline block, with fixes for IE6 and 7.</p>
+
+<pre><code>@include inline-block;
+</code></pre>
+
+<h3 id="mobile_helpers">Mobile Helpers</h3>
+
+<h4 id="fixed_sized_text">fixed-sized-text</h4>
+
+<p>Prevent the device from automatically scaling text. Support:</p>
+
+<ul>
+<li>iOS Safari</li>
+<li>Windows Phone IE</li>
+</ul>
+
+<p>This is usually placed on the root or body element.</p>
+
+<pre><code>html {
+    @include fixed-sized-text;
+}
+</code></pre>
+
+<h3 id="print_helpers">Print Helpers</h3>
+
+<h4 id="append_content">append-content</h4>
+
+<p>Appends the content of links and abbreviation elements to the text when printed out. This allows people who print a page to see the href of the link after the link text.</p>
+
+<pre><code>body {
+    @include append-content;
+}
+</code></pre>
+
+<h4 id="printable_text">printable-text</h4>
+
+<p>Sets up some standard defaults for print a page. It makes the background transparent, sets the text to a soft black, removes all text shadows, prevents windows and orphans in text, adjusts the colour and display of links and avoids page breaks before or after any headings.</p>
+
+<pre><code>body {
+    @include printable-text;
+}
+</code></pre>
+
+<h3 id="text_helpers">Text Helpers</h3>
+
+<h4 id="sans_serif">sans-serif</h4>
+
+<p>Returns the font-family property with a list of standard fall-back sans-serif fonts. You can add your own font to the front of the list. Takes a single parameter, $prepend, the prepends anything you give it to the list of fonts.</p>
+
+<pre><code>body {
+    @include sans-serif('Avenir');
+}
+</code></pre>
+
+<p>This will produce,</p>
+
+<pre><code>body {
+    font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+</code></pre>
+
+<h4 id="serif">serif</h4>
+
+<p>Returns the font-family property with a list of standard fall-back serif fonts. You can add your own font to the front of the list. Takes a single parameter, $prepend, the prepends anything you give it to the list of fonts.</p>
+
+<pre><code>body {
+    @include sans-serif('Baskerville');
+}
+</code></pre>
+
+<p>This will produce,</p>
+
+<pre><code>body {
+    font-family: Baskerville, "Georgia", Times New Roman, Times, sans-serif;
+}
+</code></pre>
+
+<h4 id="monospace">monospace</h4>
+
+<p>Returns the font-family property with a list of standard fall-back monospace fonts. You can add your own font to the front of the list. Takes a single parameter, $prepend, the prepends anything you give it to the list of fonts.</p>
+
+<pre><code>body {
+    @include monospace('Inconsolata');
+}
+</code></pre>
+
+<p>This will produce,</p>
+
+<pre><code>body {
+    font-family: Inconsolata, "Monaco", Courier New, monospace;
+}
+</code></pre>
+
+<h4 id="hyphens">hyphens</h4>
+
+<p>Hyphenates a block of text if the browser supports it. Takes a single parameter for the hyphens property. Accepted values are:</p>
+
+<ul>
+<li>none - Words are not broken at line breaks, even if characters inside the words suggest line break points. Lines will only wrap at whitespace.</li>
+<li>manual - Words are broken for line-wrapping only where characters inside the word suggest line break opportunities</li>
+<li>auto - The browser is free to automatically break words at appropriate hyphenation points, following whatever rules it chooses to use.</li>
+</ul>
+
+<p>Default is <code>auto</code>.</p>
+
+<pre><code>@include hyphen(none);
+</code></pre>
+
+<p>https://developer.mozilla.org/en/CSS/hyphens</p>
+
+<h4 id="justify_text">justify-text</h4>
+
+<p>Justifies the block of text. Applies hyphenation to prevent large spaces in browsers that support it.</p>
+
+<pre><code>@include justify-text;
+</code></pre>
+
+<h4 id="relative_size">relative-size</h4>
+
+<p>This is a <strong>function</strong> that can be used for em and rem text. This has 3 parameters:</p>
+
+<ul>
+<li>$size - The size you wish to set the text</li>
+<li>$content - The current computed text size of the element</li>
+<li>$unit - The type of unit to return. Default is em.</li>
+</ul>
+
+<p>This is very useful when building designs using ems.</p>
+
+<pre><code>body {
+    font-size: relative-size(12,16);
+}
+</code></pre>
+
+<p>Will return</p>
+
+<pre><code>body {
+    font-size: 0.75em
+}
+</code></pre>
+
+<p>It will also work with rem text sizing. Set a variable for the global font size and use that each time</p>
+
+<pre><code>$global-font-size: 13px;
+
+html,body {
+    font-size: $global-font-size;
+}
+
+.news-item {
+    font-size: relative-size(12, $global-font-size, rem);
+}
+</code></pre>
+
+<h4 id="improve_text_rendering">improve-text-rendering</h4>
+
+<p>Improves the rendering of text by applying subpixel-antialiasing. Also applies helps render text better in Firefox on Windows.</p>
+
+<pre><code>@include improve-text-rendering
+</code></pre>
+
+<h3 id="utilities">Utilities</h3>
+
+<h4 id="prefix">prefix</h4>
+
+<p>This mixin takes a property and applies a number of vendor prefixes to it. It use 5 default prefixes, <code>-webkit</code>, <code>-moz</code>, <code>-o</code>, <code>-khtml</code> and <code>-ms</code>.</p>
+
+<p>For example:</p>
+
+<pre><code>.box {
+    @include prefix('border-radius', 10px);
+}
+</code></pre>
+
+<p>Which will return</p>
+
+<pre><code>.box {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px;
+}
+</code></pre>
+
+<p>You can adjust the prefixes that are added by using the 3 parameter. This takes a list of prefixes.</p>
+
+<pre><code>.box {
+    @include prefix('border-radius', 10px, $prefixes: -moz);
+}
+</code></pre>
+
+<p>Which will return,</p>
+
+<pre><code>.box {
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+</code></pre>
+
+<h4 id="prefix_value">prefix-value</h4>
+
+<p>Works in a similar way to the prefix mixin, but applies it to a property value instead of the property name. For example:</p>
+
+<pre><code>.box {
+    @include prefix-value(display,box, $prefixes: -webkit, -moz);
+}
+</code></pre>
+
+<p>Will return,</p>
+
+<pre><code>.box {
+    display: -webkit-box;
+    display: -moz-box;
+}
+</code></pre>
+
+<!--
+
+<h3 id="css3_helpers">CSS3 Helpers</h3>
+
+<p>The CSS3 helpers are very similar to those used in Compass. I&#8217;ve adapted them to my needs and style. These make heavy use of the prefix and prefix-value mixins. </p>
+
+<p>In all cases, <strong>these mixins have the value of the property as their first parameter and <code>$prefixes</code> as their second parameter</strong>. By default, these are filled out so that only the browsers that need them for a particular property will get them, but you can adjust the prefixes used on each.</p>
+
+<h4 id="appearance">appearance</h4>
+
+<p>Takes a number of browser-specific values, but the most common use is to remove the appearance a browser gives a button or form element which is the value <code>none</code>.</p>
+
+<pre><code>@include appearance(none);
+</code></pre>
+
+<p>Will return</p>
+
+<pre><code>-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+</code></pre>
+
+<h4 id="background_clip">background-clip</h4>
+
+<p>Includes support for older implementations of background clip that have different values. Use the standard CSS3 values:</p>
+
+<ul>
+	<li>border-box</li>
+	<li>padding-box</li>
+	<li>content-box</li>
+</ul>
+
+<pre><code>@include background-clip(padding-box);
+</code></pre>
+
+<pre><code>-webkit-background-clip: padding;
+-moz-background-clip: padding;
+background-clip: padding-box;
+</code></pre>
+
+<h4>background-origin</h4>
+
+<p>Includes support for older implementations of background clip that have different values. Use the standard CSS3 values:</p>
+
+<ul>
+	<li>border-box</li>
+	<li>padding-box</li>
+	<li>content-box</li>
+</ul>
+
+<pre><code>@include background-origin(padding-box);
+</code></pre>
+
+<pre><code>-webkit-background-origin: padding;
+-moz-background-origin: padding;
+background-origin: padding-box;
+</code></pre>
+
+<h4>border-radius</h4>
+
+<p>Maps to the CSS value exactly</p>
+
+<pre><code>@include border-radius(5px 5px 5px 5px);
+</code></pre>
+
+<pre><code>-webkit-border-radius: 5px 5px 5px 5px;
+-moz-border-radius: 5px 5px 5px 5px;
+border-radius: 5px 5px 5px 5px;
+</code></pre>
+
+<h4>box-shadow</h4>
+
+<p>Maps to the CSS value exactly</p>
+
+<pre><code>@include box-shadow(0 0 1px red);
+</code></pre>
+
+<pre><code>-webkit-box-shadow: 0 0 1px red;
+-moz-box-shadow: 0 0 1px red;
+box-shadow: 0 0 1px red;
+</code></pre>
 		
-		<section id="rules">
-			<h1>Best Practice</h1>
-			<p>Stitch is built with conventions in mind. While these aren't ever forced upon you, if you follow these conventions, you'll be a happier person.</p>
-			
-			<h2>Avoid Global Styles</h2>
-			<p>We've come to believe that complete inheritance is a good thing in CSS. While it has it's benefits, it needs to be controlled if we plan to make our CSS modular. </p>
-			
-			<p>The most common example of this (as seen in every static CSS framework) is <strong>styling of text nodes globally</strong>. Most people style the <code>h1,h2,h3,h4,h5,h6</code> tags at the root assuming it is correct to inherit these styles all the way down, but this causes a lot of issues down the track:</p>
-			
-		</section>
-		
+<h4>display-box</h4>
+
+<p>Adds display:box for the browsers that support it. Have a look at <a href="http://flexiejs.com/playground/">Flexie</a> for help on using the flexible box layout.</p>
+
+<pre><code>@include display-box;
+</code></pre>
+
+<pre><code>display: -webkit-box;
+display: -moz-box;
+display: box;
+</code></pre>
+
+-->
+
+
 	</section>
+</div>
 	
 <a href="http://github.com/anthonyshort/stitch-css"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
+
+<script src="assets/jquery.js"></script>
+<script src="assets/jquery.tableofcontents.min.js"></script>
+<script>
+$(function(){
+	$('#toc').tableOfContents(
+		$(".copy"), {
+			startLevel: 2,
+			depth: 5
+		}
+	);
+});
+</script>
 </body>
 </html>
