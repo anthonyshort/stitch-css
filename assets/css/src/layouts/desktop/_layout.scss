@@ -20,12 +20,13 @@ nav {
 	h1 {
 		font-size:16px;
 		color:#999;
-		
-		& + a {
-			font-weight:bold;
-			color:$color-red;
-			text-decoration:underline;
-		} 
+	}
+	
+	& > a {
+		font-weight:bold;
+		color:$color-red;
+		text-decoration:underline;
+		display:block;
 	}
 }
 
