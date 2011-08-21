@@ -1,19 +1,15 @@
 /*
   Cross-browser inline-block.
+  @see http://www.quirksmode.org/css/display.html
 */
-.stitch-inline-block {
-	& {
-		*display : inline;
-	}
-	display         : -moz-inline-box;
-	-moz-box-orient : vertical;
-	display         : inline-block;
-	vertical-align  : middle;
-	& {
-		*vertical-align : auto; 
-	}
+.__inline-block {
+	display:inline-block;
+
+	/* IE7 fix */
+	*display:inline;
+	*zoom:1;
 }
 
 @mixin inline-block {
-	@extend .stitch-inline-block;
+	@extend .__inline-block;
 }

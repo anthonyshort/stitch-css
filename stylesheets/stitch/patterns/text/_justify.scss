@@ -1,0 +1,4 @@
+@mixin justify-text {
+	@include hyphens(auto);
+	text-align:justify;
+}

@@ -4,15 +4,7 @@
  * @see http://nicolasgallagher.com/micro-clearfix-hack/
  */
 
-/*
-  We're using classes and extending them so that we're not writing each of these
-  rules in every selector we use.
-*/
-.stitch-clearfix-legacy {
-	zoom:1;
-}
-
-.stitch-clearfix {
+.__clearfix {
 	&::before,
 	&::after {
 	    content:"";
@@ -21,13 +13,9 @@
 	&::after {
 	    clear:both;
 	}
+	zoom:1;
 }
 
-@mixin clear-floats($legacy:false) {
-	// Modern browser support
-	@extend .stitch-clearfix;
-	// IE6/7 support
-	@if $legacy == true {
-		@extend .stitch-clearfix-legacy;
-	}
+@mixin clear-floats($alt:false) {
+	@extend .__clearfix;
 }

@@ -11,12 +11,14 @@
 	</div>
 */
 
-@mixin content-with-media($position: left, $spacing:20px, $image: '.content-image', $content: '.content') {
- 	#{unquote($image)} {
+@mixin media-block($position: left, $spacing:0, $media: '.media', $block: '.block') {
+ 	#{unquote($media)} {
 		float:$position;
-		margin-#{opposite-position($position)}:$spacing;
+		@if $spacing > 0 {
+			margin-#{opposite-position($position)}:$spacing;
+		}
 	}
-	#{unquote($content)} {
+	#{unquote($block)} {
 		overflow:hidden;
 	}
 }

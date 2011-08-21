@@ -2,7 +2,7 @@
    css-discuss.incutio.com/wiki/Screenreader_Visibility */
 @mixin hide-from-all {
 	display:none;
-	visibility: hidden;
+	visibility:hidden;
 } 
 
 /* Hide only visually, but have it available for screenreaders 
@@ -15,6 +15,6 @@
 }
 
 /* Hide visually and from screenreaders, but maintain layout */
-@mixin invisible-with-layout {
+@mixin invisible {
 	visibility: hidden;
 }

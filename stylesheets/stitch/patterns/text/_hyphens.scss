@@ -1,0 +1,7 @@
+/*
+  Initial Value: manual
+  Values: none, manual, auto
+*/
+@mixin hyphens($value) {
+	@include prefix('hyphens',$value,-moz -webkit);
+}

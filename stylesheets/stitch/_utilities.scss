@@ -1,0 +1,44 @@
+/* Prefix properties and values 
+---------------------------------------- */
+
+$default-prefixes: -webkit, -moz, -o, -khtml, -ms;
+
+@mixin prefix($property, $value, $prefixes: $default-prefixes) {
+	
+	// Unquote the values
+	$property : unquote($property);
+	$value    : unquote($value);
+	
+	// Loop through the prefixes given
+	@each $prefix in $prefixes {
+		#{$prefix}-#{$property}:$value;
+	}
+	
+	// Standard property as well
+	#{$property}:$value;
+}
+
+@mixin prefix-value($property, $value, $prefixes: $default-prefixes) {
+	
+	// Unquote the values
+	$property : unquote($property);
+	$value    : unquote($value);
+	
+	// Loop through the prefixes given
+	@each $prefix in $prefixes {
+		#{$property}:#{$prefix}-#{$value};
+	}
+}
+
+/**
+ * Allows you to import a file only once
+ * @param $name string File to import
+*/
+$imported-once-files: ();
+@function import-once($name) {
+    @if index($imported-once-files, $name) {
+        @return false;
+    }
+    $imported-once-files: append($imported-once-files, $name);
+    @return true;
+}
