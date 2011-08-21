@@ -16,6 +16,6 @@
 	zoom:1;
 }
 
-@mixin clear-floats($alt:false) {
+@mixin clear-floats {
 	@extend .__clearfix;
 }

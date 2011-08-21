@@ -13,9 +13,6 @@ $default-prefixes: -webkit, -moz, -o, -khtml, -ms;
 	@each $prefix in $prefixes {
 		#{$prefix}-#{$property}:$value;
 	}
-	
-	// Standard property as well
-	#{$property}:$value;
 }
 
 @mixin prefix-value($property, $value, $prefixes: $default-prefixes) {

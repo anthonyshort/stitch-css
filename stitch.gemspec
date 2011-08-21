@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   
   s.add_runtime_dependency "compass"
-  s.add_runtime_dependency "sass-globbing"
+  #s.add_runtime_dependency "sass-globbing"
 end

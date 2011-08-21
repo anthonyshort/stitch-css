@@ -2,7 +2,7 @@
   These provide basic font stacks with fallbacks. You can add your own fonts to the stack
 */
 
-@mixin sans-serif($prepend:false, $size:false, $weight:false, $style:false, $height:false) {
+@mixin sans-serif($prepend:false) {
 	font-family: join($prepend,"Helvetica Neue", Helvetica, Arial, sans-serif);
 }
 

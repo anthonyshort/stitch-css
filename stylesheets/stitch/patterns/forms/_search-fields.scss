@@ -3,7 +3,7 @@
 */
 @mixin reset-search-field {
 	-webkit-appearance:textfield;
-	::-webkit-search-decoration {
+	&::-webkit-search-decoration {
 		display:none
 	}
 }
