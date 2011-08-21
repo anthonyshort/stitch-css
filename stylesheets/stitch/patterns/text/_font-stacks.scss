@@ -3,13 +3,16 @@
 */
 
 @mixin sans-serif($prepend:false) {
-	font-family: join($prepend,"Helvetica Neue", Helvetica, Arial, sans-serif);
+	$list: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: join($prepend,$list,comma);
 }
 
 @mixin serif($prepend:false) {
-	font-family: join($prepend,"Georgia", Times New Roman, Times, sans-serif);
+	$list: "Georgia", Times New Roman, Times, sans-serif;
+	font-family: join($prepend,$list,comma);
 }
 
 @mixin monospace($prepend:false) {
-	font-family: join($prepend,"Monaco", Courier New, monospace);
+	$list: "Monaco", Courier New, monospace;
+	font-family: join($prepend,$list,comma);
 }
