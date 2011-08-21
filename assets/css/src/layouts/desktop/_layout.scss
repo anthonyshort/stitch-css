@@ -1,75 +1,49 @@
-/*
-  All layout styles should go in here. Seperate your layout styles from your design styles
-  Common layout styles should be mixins, patterns or modules
-*/
-.container {
-	
-}
-
-.tartan {
-	background-color: hsl(2, 57%, 40%);
-	background-image: -webkit-repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
-	  -webkit-repeating-linear-gradient(180deg, transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px),
-	  -webkit-repeating-linear-gradient(-35deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px);
-}
-
-html {
-	border-top:10px solid #000;
-}
+$sidebar-width: 200px;
 
 body {
-	@include center-horizontal(600px);
-	padding:$baseline*4;
-	//background:#fff;
-	@extend .tartan;
-	
+	background:#501816;
+	padding-left:$sidebar-width;
+	padding-right:40px;
 }
 
 nav {
-	position:absolute;
-	top:30px;
-	font-size:14px;
-	
-	ul {
-		@include center-horizontal(600px);
-	}
-	li {
-		float:left;
-		margin-right:15px;
-	}
-	a {
-		@include transition('.2s all');
-		display:block;
-		font-weight:bold;
-		color:#fff;
-		&:hover {
-			text-decoration:underline;
-		}
-	}
+	float:left;
+	position:fixed;
+	overflow:auto;
+	top:0;
+	bottom:0;
+	left:0;
+	width:$sidebar-width;
+	background:#fff;
+}
+
+body > header,
+body > section.copy {
+	width:500px;
+	padding-left:80px;
+	padding-right:100px;
+	background:darken(#fff,5%);
 }
 
 body > section.copy {
-	background:#fff;
-	padding:50px 70px;
-	@include box-shadow(10px 10px 0 rgba(0,0,0,0.3));
+	padding-bottom:100px;
 }
 
 #site-title {
 	
-	margin-bottom:$baseline * 2;
+	padding-top:40px;
+	padding-bottom:$baseline * 2;
 	
 	h1 {
 		font-size:100px;
 		font-weight:bold;
 		line-height:1;
 		margin-bottom:$baseline/2;
-		color:#fff;
-		text-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+		color:darken(#501816,10%);
 	}
 
 	h2 {
 		font-size:24px;
-		color:#fff;
-		text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+		color: lighten(#000,60%);
 	}
 }

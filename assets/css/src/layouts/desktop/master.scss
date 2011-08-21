@@ -1,19 +1,6 @@
-// Compass CSS3 Helpers
-@import "compass/css3";
-
-// Patterns
+@import "compass";
 @import "stitch/patterns";
-
-// Reset
-@import "stitch/reset/desktop";
-
-// Assets
-
-// Specific styles
-@import "functions";
+@import "stitch/reset";
 @import "global";
 @import "copy";
 @import "layout";
-@import "modules";
-@import "forms";
-@import "type";

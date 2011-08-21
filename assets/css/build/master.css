@@ -1,3 +1,1 @@
-@import "layouts/desktop/master.css" screen and (min-width: 481px);
-@import "layouts/tablet/master.css" screen and (min-width: 481px) and (max-width: 1024px);
-@import "layouts/mobile/master.css" screen and (max-width: 480px);
+@import url(layouts/desktop/master.css);
