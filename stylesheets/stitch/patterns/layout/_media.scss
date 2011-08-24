@@ -1,15 +1,15 @@
-/*
-  For blocks of content with media beside them.
-  Adding overflow hidden changes the way the content interacts with the float
-*/
+//
+//  For blocks of content with media beside them.
+//  Adding overflow hidden changes the way the content interacts with the float
+//
 
-/*
-	Apply it to the wrapper div
-	<div>
-		<img class="content-image" />
-		<div class="content"></div>
-	</div>
-*/
+//
+//	Apply it to the wrapper div
+//	<div>
+//		<img class="content-image" />
+//		<div class="content"></div>
+//	</div>
+//
 
 @mixin media-block($position: left, $spacing:0, $media: '.media', $block: '.block') {
  	#{unquote($media)} {

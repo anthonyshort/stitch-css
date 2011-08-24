@@ -1,7 +1,7 @@
-/*
-  Shorthand for CSS columns
-  @include text-columns(3,20px);
-*/
+//
+//  Shorthand for CSS columns
+//  @include text-columns(3,20px);
+//
 @mixin text-columns($count:2,$gap:20px,$width:auto,$rule:none) {
 	@include column-count($count);
 	@include column-gap($count);
