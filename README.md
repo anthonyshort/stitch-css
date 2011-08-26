@@ -2,7 +2,7 @@
 
 Patterns are chunks of styles that we use on every project. These chunks of styles generally perform a particular function, such as clearing floats. Having to write these styles each time is annoying and the function of these chunks of code in our stylesheets is obscure. 
 
-By breaking these patterns into reusable classes and mixins we:
+By breaking these patterns into reusable classes and mixins we can:
 
 * Make our stylesheets free from clutter
 * Give our styles more meaning
