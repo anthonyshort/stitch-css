@@ -1,7 +1,7 @@
 @mixin absolute($top:false,$right:false,$bottom:false,$left:false) {
   position:absolute;
   @if $top    { top:$top; }
-  @if $left   { top:$left; }
-  @if $bottom { top:$bottom; }
-  @if $right  { top:$right; }
+  @if $left   { left:$left; }
+  @if $bottom { bottom:$bottom; }
+  @if $right  { right:$right; }
 }
