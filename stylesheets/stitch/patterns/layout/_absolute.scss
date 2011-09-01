@@ -1,4 +1,4 @@
-@mixin absolute($top:false,$left:false,$bottom:false,$right:false) {
+@mixin absolute($top:false,$right:false,$bottom:false,$left:false) {
   position:absolute;
   @if $top    { top:$top; }
   @if $left   { top:$left; }
