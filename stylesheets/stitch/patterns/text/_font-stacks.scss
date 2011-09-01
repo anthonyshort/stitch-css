@@ -1,7 +1,6 @@
-/*
-  These provide basic font stacks with fallbacks. You can add your own fonts to the stack
-*/
-
+//
+//  These provide basic font stacks with fallbacks. You can add your own fonts to the stack
+//
 @mixin sans-serif($prepend:false) {
 	$list: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-family: join($prepend,$list,comma);

@@ -1,7 +1,6 @@
-/*
-  Adds URLs and abbreviations to the end of links in printed documents
-*/
-
+//
+//  Adds URLs and abbreviations to the end of links in printed documents
+//
 @mixin append-content {
 	a:after {
 		content:" (" attr(href) ")";

@@ -1,6 +1,4 @@
-/* 
-   Make webkit render the search input like a normal text field 
-*/
+// Make webkit render the search input like a normal text field 
 @mixin reset-search-field {
 	-webkit-appearance:textfield;
 	&::-webkit-search-decoration {
