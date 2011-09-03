@@ -23,7 +23,7 @@
 </head>
 <body>
 	<nav>
-		<h1>Stitch (0.1.2)</h1>
+		<h1>Stitch (0.1.3)</h1>
 		<a href="http://github.com/anthonyshort/stitch-css/">Github Repo</a>
 		<a href="http://github.com/anthonyshort/stitch-css/issues/new">Request a Pattern</a>
 		<ul id="toc">
@@ -246,6 +246,88 @@
 </code></pre>
 
 <h3 id="layout">Layout</h3>
+
+<h4>float-children</h4>
+
+<p>Float the direct children of an element and apply the clearfix to the parent. This is particularly useful for navigation.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+	<li>$children - Specify a particular selector to target. Note that this will be prefixed with a descendant selector. Default is <code>*</code>.</li>
+	<li>$direction - Direction to float the elements. Default is <code>left</code>.</li>
+</ul>
+
+<pre><code>.group-of-elements {
+	@include float-children;
+}</code></pre>
+
+<p>Or target a particular selector:</p>
+
+<pre><code>nav ul {
+	@include float-children('li',right);
+}</code></pre>
+
+<p>This would result in:</p>
+
+<pre><code>nav ul {
+	/* Clearfix applied here */
+	& > li {
+		float:right
+	}
+}</code></pre>
+
+<p>With <code>nav ul</code> extending the <code>.__clearfix</code> class as well.</p>
+
+<h4>absolute</h4>
+
+<p>Position an element absolute and use the parameters to set the position.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+	<li>$top - Position from the top. Default is false</li>
+	<li>$right - Position from the right. Default is false</li>
+	<li>$bottom - Position from the bottom. Default is false</li>
+	<li>$left - Position from the left. Default is false</li>
+</ul>
+
+<p>Some examples:</p>
+
+<pre><code>.overlay {
+	@include absolute(0,0,0,0);
+}</code></pre>
+
+<pre><code>nav {
+	@include absolute($top:0,$left:0);
+}</code></pre>
+
+<h4>relative</h4>
+
+<p>Position an element relative and use the parameters to set the position.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+	<li>$top - Position from the top. Default is false</li>
+	<li>$right - Position from the right. Default is false</li>
+	<li>$bottom - Position from the bottom. Default is false</li>
+	<li>$left - Position from the left. Default is false</li>
+</ul>
+
+<p>Some examples:</p>
+
+<pre><code>.overlay {
+	@include relative($right:-10px,$left:-10px);
+}</code></pre>
+
+<pre><code>h1 {
+	@include relative(-5px); // Baseline shift
+}</code></pre>
+
+<pre><code>.box {
+	@include relative(-50px,false,false,50px);
+}</code></pre>
 
 <h4 id="center_horizontally">center-horizontally</h4>
 
@@ -675,6 +757,8 @@ display: box;
 <h3>Changelog</h3>
 
 <dl class="changelog">
+	<dt>v0.1.3</dt>
+	<dd>Added new layout patterns. <code>absolute</code>, <code>relative</code>, <code>float-children</code></dd>
 	<dt>v0.1.2</dt>
 	<dd>Changed all comments to single line comments so they wouldn't be included in the output. Previously, when importing stitch, it would add all of the CSS-style comments to the output.</dd>
 </dl>
