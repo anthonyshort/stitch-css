@@ -1,0 +1,54 @@
+@mixin mobile {
+	@media only screen and (min-width : 320px) and (max-width : 480px) {
+		@content;
+	}
+}
+
+@mixin mobile-portrait {
+	@media only screen and (max-width : 320px) {
+		@content;
+	}
+}
+
+@mixin mobile-landscape {
+	@media only screen and (min-width : 321px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media only screen and (min-width : 768px) and (max-width : 1024px) {
+		@content;
+	}
+}
+
+@mixin tablet-portrait {
+	@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+		@content;
+	}
+	
+}
+
+@mixin tablet-landscape {
+	@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media only screen and (min-width : 1224px) {
+		@content;
+	}
+}
+
+@mixin wide-screen {
+	@media only screen and (min-width : 1824px) {
+		@content;
+	}
+}
+
+@mixin retina {
+	@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+		@content;
+	}
+}
