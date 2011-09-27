@@ -1,11 +1,15 @@
-@mixin float-children($children:false,$direction:left) {
+@mixin float-children($children:false,$direction:left,$width:false) {
   @include clear-floats;
 
   @if $children == false {
-    $children: '*';
-  }
+		$children: '*';
+	}
 
-  & > #{$children} {
-    float:$direction;
-  }
+	& > #{$children} {
+ 		float:$direction;
+
+		@if $width != false { 
+			width: $width; 
+		}
+	}
 }
