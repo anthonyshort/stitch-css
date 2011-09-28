@@ -1,0 +1,26 @@
+//
+//  Add a pseudo image to any element. 
+//  Pass an image, the pseudo name (before/after) and its position
+//  @include pseudo-image('my-image.png', $dir:after, $top:8px, $left:16px);
+//
+@mixin pseudo-image($img, $dir:'before', $top:false, $left:false, $bottom:false, $right:false) {
+	position: relative;
+	
+	&:#{unquote($dir)} {
+		@include image-replace($img);
+		content: " ";
+		position: absolute;
+		@if  $top != false { 
+			top: $top;
+		}
+		@if  $bottom != false { 
+			bottom: $bottom;
+		}
+		@if $left != false { 
+			left: $left;
+		}
+		@if $right != false { 
+			right: $right;
+		}
+	}
+}
