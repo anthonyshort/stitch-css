@@ -505,14 +505,14 @@
 <p>Returns the font-family property with a list of standard fall-back serif fonts. You can add your own font to the front of the list. Takes a single parameter, $prepend, the prepends anything you give it to the list of fonts.</p>
 
 <pre><code>body {
-    @include sans-serif('Baskerville');
+    @include serif('Baskerville');
 }
 </code></pre>
 
 <p>This will produce,</p>
 
 <pre><code>body {
-    font-family: Baskerville, "Georgia", Times New Roman, Times, sans-serif;
+    font-family: Baskerville, "Georgia", Times New Roman, Times, serif;
 }
 </code></pre>
 
