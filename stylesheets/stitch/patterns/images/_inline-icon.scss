@@ -1,0 +1,5 @@
+@mixin inline-icon($image, $spacing: 10px) {
+	background: image-url($image) no-repeat left center;
+	padding-left: image-width($image) + $spacing;
+	line-height: image-height($image);
+}
