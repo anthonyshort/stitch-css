@@ -1,0 +1,23 @@
+// Rotate Out Up Right
+// ---------------------------------
+
+@mixin rotateOutUpRight-keyframes() {
+	@-webkit-keyframes rotateOutUpRight { @content; }
+	@-moz-keyframes rotateOutUpRight { @content; }
+	@-ms-keyframes rotateOutUpRight { @content; }
+	@-o-keyframes rotateOutUpRight { @content; }
+	@keyframes rotateOutUpRight { @content; }
+}
+
+@include rotateOutUpRight-keyframes() {
+	0% {
+		@include transform(right bottom);
+		@include transform(rotate(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(right bottom);
+		@include transform(rotate(90deg));
+		opacity: 0;
+	}
+};

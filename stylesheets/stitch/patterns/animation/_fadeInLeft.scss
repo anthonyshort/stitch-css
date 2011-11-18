@@ -1,0 +1,21 @@
+// Fade In Left
+// ---------------------------------
+
+@mixin fadeInLeft-keyframes() {
+	@-webkit-keyframes fadeInLeft { @content; }
+	@-moz-keyframes fadeInLeft { @content; }
+	@-ms-keyframes fadeInLeft { @content; }
+	@-o-keyframes fadeInLeft { @content; }
+	@keyframes fadeInLeft { @content; }
+}
+
+@include fadeInLeft-keyframes() {
+	0% {
+		@include transform(translateX(-20px));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateX(0));
+		opacity: 1;
+	}
+};

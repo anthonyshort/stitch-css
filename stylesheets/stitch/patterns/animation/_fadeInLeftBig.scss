@@ -1,0 +1,21 @@
+// Fade In Left Big
+// ---------------------------------
+
+@mixin fadeInLeftBig-keyframes() {
+	@-webkit-keyframes fadeInLeftBig { @content; }
+	@-moz-keyframes fadeInLeftBig { @content; }
+	@-ms-keyframes fadeInLeftBig { @content; }
+	@-o-keyframes fadeInLeftBig { @content; }
+	@keyframes fadeInLeftBig { @content; }
+}
+
+@include fadeInLeftBig-keyframes() {
+	0% {
+		@include transform(translateX(-2000px));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateX(0));
+		opacity: 1;
+	}
+};

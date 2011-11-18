@@ -1,0 +1,27 @@
+// Bounce In Right
+// ---------------------------------
+
+@mixin bounceInRight-keyframes() {
+	@-webkit-keyframes bounceInRight { @content; }
+	@-moz-keyframes bounceInRight { @content; }
+	@-ms-keyframes bounceInRight { @content; }
+	@-o-keyframes bounceInRight { @content; }
+	@keyframes bounceInRight { @content; }
+}
+
+@include bounceInRight-keyframes() {
+	0% {
+		@include transform(translateX(2000px));
+		opacity: 0;
+	}
+	60% {
+		@include transform(translateX(-30px));
+		opacity: 1;
+	}
+	80% {
+		@include transform(translateX(10px));
+	}
+	100% {
+		@include transform(translateX(0));
+	}
+};

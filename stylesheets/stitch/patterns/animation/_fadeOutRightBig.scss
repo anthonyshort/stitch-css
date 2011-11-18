@@ -1,0 +1,21 @@
+// Fade Out Right Big
+// ---------------------------------
+
+@mixin fadeOutRightBig-keyframes() {
+	@-webkit-keyframes fadeOutRightBig { @content; }
+	@-moz-keyframes fadeOutRightBig { @content; }
+	@-ms-keyframes fadeOutRightBig { @content; }
+	@-o-keyframes fadeOutRightBig { @content; }
+	@keyframes fadeOutRightBig { @content; }
+}
+
+@include fadeOutRightBig-keyframes() {
+	0% {
+		@include transform(translateX(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(translateX(2000px));
+		opacity: 0;
+	}
+};

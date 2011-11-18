@@ -1,0 +1,23 @@
+// Rotate In
+// ---------------------------------
+
+@mixin rotateIn-keyframes() {
+	@-webkit-keyframes rotateIn { @content; }
+	@-moz-keyframes rotateIn { @content; }
+	@-ms-keyframes rotateIn { @content; }
+	@-o-keyframes rotateIn { @content; }
+	@keyframes rotateIn { @content; }
+}
+
+@include rotateIn-keyframes() {
+	0% {
+		@include transform(center center);
+		@include transform(rotate(-200deg));
+		opacity: 0;
+	}
+	100% {
+		@include transform(center center);
+		@include transform(rotate(0));
+		opacity: 1;
+	}
+};

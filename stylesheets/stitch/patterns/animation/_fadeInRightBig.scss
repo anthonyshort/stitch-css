@@ -1,0 +1,21 @@
+// Fade In Right Big
+// ---------------------------------
+
+@mixin fadeInRightBig-keyframes() {
+	@-webkit-keyframes fadeInRightBig { @content; }
+	@-moz-keyframes fadeInRightBig { @content; }
+	@-ms-keyframes fadeInRightBig { @content; }
+	@-o-keyframes fadeInRightBig { @content; }
+	@keyframes fadeInRightBig { @content; }
+}
+
+@include fadeInRightBig-keyframes() {
+	0% {
+		@include transform(translateX(2000px));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateX(0));
+		opacity: 1;
+	}
+};

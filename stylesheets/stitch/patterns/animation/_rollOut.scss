@@ -1,0 +1,21 @@
+// Roll Out
+// ---------------------------------
+
+@mixin rollOut-keyframes() {
+	@-webkit-keyframes rollOut { @content; }
+	@-moz-keyframes rollOut { @content; }
+	@-ms-keyframes rollOut { @content; }
+	@-o-keyframes rollOut { @content; }
+	@keyframes rollOut { @content; }
+}
+
+@include rollOut-keyframes() {
+	0% {
+		@include transform(translateX(0px) rotate(0deg));
+		opacity: 1;
+	}
+    100% {
+		@include transform(translateX(100%) rotate(120deg));
+		opacity: 0;
+	}
+};

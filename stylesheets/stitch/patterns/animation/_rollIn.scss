@@ -1,0 +1,21 @@
+// Roll In
+// ---------------------------------
+
+@mixin rollIn-keyframes() {
+	@-webkit-keyframes rollIn { @content; }
+	@-moz-keyframes rollIn { @content; }
+	@-ms-keyframes rollIn { @content; }
+	@-o-keyframes rollIn { @content; }
+	@keyframes rollIn { @content; }
+}
+
+@include rollIn-keyframes() {
+	0% { 
+		@include transform(translateX(-100%) rotate(-120deg));
+		opacity: 0; 
+	}
+	100% { 
+		@include transform(translateX(0px) rotate(0deg)); 
+		opacity: 1; 
+	}
+};

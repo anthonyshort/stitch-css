@@ -1,0 +1,24 @@
+// Bounce Out Right
+// ---------------------------------
+
+@mixin bounceOutRight-keyframes() {
+	@-webkit-keyframes bounceOutRight { @content; }
+	@-moz-keyframes bounceOutRight { @content; }
+	@-ms-keyframes bounceOutRight { @content; }
+	@-o-keyframes bounceOutRight { @content; }
+	@keyframes bounceOutRight { @content; }
+}
+
+@include bounceOutRight-keyframes() {
+	0% {
+		@include transform(translateX(0));
+	}
+	20% {
+		@include transform(translateX(-20px));
+		opacity: 1;
+	}
+	100% {
+		@include transform(translateX(2000px));
+		opacity: 0;
+	}
+};

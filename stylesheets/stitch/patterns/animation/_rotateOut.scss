@@ -1,0 +1,23 @@
+// Rotate Out
+// ---------------------------------
+
+@mixin rotateOut-keyframes() {
+	@-webkit-keyframes rotateOut { @content; }
+	@-moz-keyframes rotateOut { @content; }
+	@-ms-keyframes rotateOut { @content; }
+	@-o-keyframes rotateOut { @content; }
+	@keyframes rotateOut { @content; }
+}
+
+@include rotateOut-keyframes() {
+	0% {
+		@include transform(center center);
+		@include transform(rotate(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(center center);
+		@include transform(rotate(200deg));
+		opacity: 0;
+	}
+};

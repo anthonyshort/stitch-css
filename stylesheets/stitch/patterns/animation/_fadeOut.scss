@@ -1,0 +1,19 @@
+// Fade Out
+// ---------------------------------
+
+@mixin fadeOut-keyframes() {
+	@-webkit-keyframes fadeOut { @content; }
+	@-moz-keyframes fadeOut { @content; }
+	@-ms-keyframes fadeOut { @content; }
+	@-o-keyframes fadeOut { @content; }
+	@keyframes fadeOut { @content; }
+}
+
+@include fadeOut-keyframes() {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+};
