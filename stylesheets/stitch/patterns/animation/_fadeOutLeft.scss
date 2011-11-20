@@ -1,0 +1,21 @@
+// Fade Out Left
+// ---------------------------------
+
+@mixin fadeOutLeft-keyframes() {
+	@-webkit-keyframes fadeOutLeft { @content; }
+	@-moz-keyframes fadeOutLeft { @content; }
+	@-ms-keyframes fadeOutLeft { @content; }
+	@-o-keyframes fadeOutLeft { @content; }
+	@keyframes fadeOutLeft { @content; }
+}
+
+@include fadeOutLeft-keyframes() {
+	0% {
+		@include transform(translateX(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(translateX(-20px));
+		opacity: 0;
+	}
+};

@@ -1,0 +1,22 @@
+// Pulse
+// ---------------------------------
+
+@mixin pulse-keyframes() {
+	@-webkit-keyframes pulse { @content; }
+	@-moz-keyframes pulse { @content; }
+	@-ms-keyframes pulse { @content; }
+	@-o-keyframes pulse { @content; }
+	@keyframes pulse { @content; }
+}
+
+@include pulse-keyframes() {
+	0% { 
+		@include transform(scale(1)); 
+	}	
+	50% { 
+		@include transform(scale(1.1)); 
+	}
+    100% { 
+		@include transform(scale(1)); 
+	}
+};

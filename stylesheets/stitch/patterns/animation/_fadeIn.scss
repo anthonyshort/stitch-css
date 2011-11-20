@@ -1,0 +1,19 @@
+// Fade In
+// ---------------------------------
+
+@mixin fadeIn-keyframes() {
+	@-webkit-keyframes fadeIn { @content; }
+	@-moz-keyframes fadeIn { @content; }
+	@-ms-keyframes fadeIn { @content; }
+	@-o-keyframes fadeIn { @content; }
+	@keyframes fadeIn { @content; }
+}
+
+@include fadeIn-keyframes() {
+	0% {
+		opacity: 0;
+	}	
+	100% {
+		opacity: 1;
+	}
+};

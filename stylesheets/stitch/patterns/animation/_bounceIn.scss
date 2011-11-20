@@ -1,0 +1,27 @@
+// Bounce In
+// ---------------------------------
+
+@mixin bounceIn-keyframes() {
+	@-webkit-keyframes bounceIn { @content; }
+	@-moz-keyframes bounceIn { @content; }
+	@-ms-keyframes bounceIn { @content; }
+	@-o-keyframes bounceIn { @content; }
+	@keyframes bounceIn { @content; }
+}
+
+@include bounceIn-keyframes() {
+	0% {
+		@include transform(scale(.3));
+		opacity: 0;
+	}
+	50% {
+		@include transform(scale(1.05));
+		opacity: 1;
+	}
+	70% {
+		@include transform(scale(.9));
+	}
+	100% {
+		@include transform(scale(1));
+	}
+};

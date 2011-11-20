@@ -1,0 +1,19 @@
+// Flash
+// ---------------------------------
+
+@mixin flash-keyframes() {
+	@-webkit-keyframes flash { @content; }
+	@-moz-keyframes flash { @content; }
+	@-ms-keyframes flash { @content; }
+	@-o-keyframes flash { @content; }
+	@keyframes flash { @content; }
+}
+
+@include flash-keyframes() {
+	0%, 50%, 100% {
+		opacity: 1;
+	}	
+	25%, 75% {
+		opacity: 0;
+	}
+};

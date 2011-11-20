@@ -1,0 +1,28 @@
+// Swing
+// ---------------------------------
+
+@mixin swing-keyframes() {
+	@-webkit-keyframes swing { @content; }
+	@-moz-keyframes swing { @content; }
+	@-ms-keyframes swing { @content; }
+	@-o-keyframes swing { @content; }
+	@keyframes swing { @content; }
+}
+
+@include swing-keyframes() {
+	20% { 
+		@include transform(rotate(15deg)); 
+	}	
+	40% { 
+		@include transform(rotate(-10deg)); 
+	}
+	60% { 
+		@include transform(rotate(5deg)); 
+	}	
+	80% { 
+		@include transform(rotate(-5deg)); 
+	}	
+	100% { 
+		@include transform(rotate(0deg)); 
+	}
+};

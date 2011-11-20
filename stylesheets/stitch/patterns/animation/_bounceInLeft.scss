@@ -1,0 +1,27 @@
+// Bounce In Left
+// ---------------------------------
+
+@mixin bounceInLeft-keyframes() {
+	@-webkit-keyframes bounceInLeft { @content; }
+	@-moz-keyframes bounceInLeft { @content; }
+	@-ms-keyframes bounceInLeft { @content; }
+	@-o-keyframes bounceInLeft { @content; }
+	@keyframes bounceInLeft { @content; }
+}
+
+@include bounceInLeft-keyframes() {
+	0% {
+		@include transform(translateX(-2000px));
+		opacity: 0;
+	}
+	60% {
+		@include transform(translateX(30px));
+		opacity: 1;
+	}
+	80% {
+		@include transform(translateX(-10px));
+	}
+	100% {
+		@include transform(translateX(0));
+	}
+};

@@ -1,0 +1,23 @@
+// Rotate Out Down Left
+// ---------------------------------
+
+@mixin rotateOutDownLeft-keyframes() {
+	@-webkit-keyframes rotateOutDownLeft { @content; }
+	@-moz-keyframes rotateOutDownLeft { @content; }
+	@-ms-keyframes rotateOutDownLeft { @content; }
+	@-o-keyframes rotateOutDownLeft { @content; }
+	@keyframes rotateOutDownLeft { @content; }
+}
+
+@include rotateOutDownLeft-keyframes() {
+	0% {
+		@include transform(left bottom);
+		@include transform(rotate(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(left bottom);
+		@include transform(rotate(90deg));
+		opacity: 0;
+	}
+};

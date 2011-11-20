@@ -1,0 +1,38 @@
+// Hinge
+// ---------------------------------
+
+@mixin hinge-keyframes() {
+	@-webkit-keyframes hinge { @content; }
+	@-moz-keyframes hinge { @content; }
+	@-ms-keyframes hinge { @content; }
+	@-o-keyframes hinge { @content; }
+	@keyframes hinge { @content; }
+}
+
+@include hinge-keyframes() {
+	0% { 
+		@include transform(rotate(0)); 
+		@include transform(top left); 
+		@include transform(ease-in-out); 
+	}	
+	20%, 60% { 
+		@include transform(rotate(80deg)); 
+		@include transform(top left); 
+		@include transform(ease-in-out); 
+	}	
+	40% { 
+		@include transform(rotate(60deg)); 
+		@include transform(top left); 
+		@include transform(ease-in-out); 
+	}	
+	80% { 
+		opacity: 1; 
+		@include transform(rotate(60deg) translateY(0)); 
+		@include transform(top left); 
+		@include transform(ease-in-out); 
+	}	
+	100% { 
+		opacity: 0; 
+		@include transform(translateY(700px)); 
+	}
+};

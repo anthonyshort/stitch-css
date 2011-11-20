@@ -1,0 +1,21 @@
+// Fade Out Right
+// ---------------------------------
+
+@mixin fadeOutRight-keyframes() {
+	@-webkit-keyframes fadeOutRight { @content; }
+	@-moz-keyframes fadeOutRight { @content; }
+	@-ms-keyframes fadeOutRight { @content; }
+	@-o-keyframes fadeOutRight { @content; }
+	@keyframes fadeOutRight { @content; }
+}
+
+@include fadeOutRight-keyframes() {
+	0% {
+		@include transform(translateX(0));
+		opacity: 1;
+	}
+	100% {
+		@include transform(translateX(20px));
+		opacity: 0;
+	}
+};

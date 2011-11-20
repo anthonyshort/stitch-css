@@ -1,0 +1,21 @@
+// Fade In Up Big
+// ---------------------------------
+
+@mixin fadeInUpBig-keyframes() {
+	@-webkit-keyframes fadeInUpBig { @content; }
+	@-moz-keyframes fadeInUpBig { @content; }
+	@-ms-keyframes fadeInUpBig { @content; }
+	@-o-keyframes fadeInUpBig { @content; }
+	@keyframes fadeInUpBig { @content; }
+}
+
+@include fadeInUpBig-keyframes() {
+	0% {
+		@include transform(translateY(2000px));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
+};

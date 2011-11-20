@@ -1,0 +1,34 @@
+// Wobble
+// ---------------------------------
+
+@mixin wobble-keyframes() {
+	@-webkit-keyframes wobble { @content; }
+	@-moz-keyframes wobble { @content; }
+	@-ms-keyframes wobble { @content; }
+	@-o-keyframes wobble { @content; }
+	@keyframes wobble { @content; }
+}
+
+@include wobble-keyframes() {
+	0% { 
+		@include transform(translateX(0%)); 
+	}
+	15% { 
+		@include transform(translateX(-25%) rotate(-5deg)); 
+	}
+	30% { 
+		@include transform(translateX(20%) rotate(3deg)); 
+	}
+	45% { 
+		@include transform(translateX(-15%) rotate(-3deg)); 
+	}
+	60% { 
+		@include transform(translateX(10%) rotate(2deg)); 
+	}
+	75% { 
+		@include transform(translateX(-5%) rotate(-1deg)); 
+	}
+	100% { 
+		@include transform(translateX(0%)); 
+	}
+};

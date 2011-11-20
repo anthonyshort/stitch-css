@@ -1,0 +1,21 @@
+// Fade In Down Big
+// ---------------------------------
+
+@mixin fadeInDownBig-keyframes() {
+	@-webkit-keyframes fadeInDownBig { @content; }
+	@-moz-keyframes fadeInDownBig { @content; }
+	@-ms-keyframes fadeInDownBig { @content; }
+	@-o-keyframes fadeInDownBig { @content; }
+	@keyframes fadeInDownBig { @content; }
+}
+
+@include fadeInDownBig-keyframes() {
+	0% {
+		@include transform(translateY(-2000px));
+		opacity: 0;
+	}
+	100% {
+		@include transform(translateY(0));
+		opacity: 1;
+	}
+};

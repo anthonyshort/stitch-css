@@ -1,0 +1,27 @@
+// Bounce Out
+// ---------------------------------
+
+@mixin bounceOut-keyframes() {
+	@-webkit-keyframes bounceOut { @content; }
+	@-moz-keyframes bounceOut { @content; }
+	@-ms-keyframes bounceOut { @content; }
+	@-o-keyframes bounceOut { @content; }
+	@keyframes bounceOut { @content; }
+}
+
+@include bounceOut-keyframes() {
+	0% {
+		@include transform(scale(1));
+	}
+	25% {
+		@include transform(scale(.95));
+	}
+	50% {
+		@include transform(scale(1.1));
+		opacity: 1;
+	}
+	100% {
+		@include transform(scale(.3));
+		opacity: 0;
+	}
+};

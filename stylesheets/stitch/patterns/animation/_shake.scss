@@ -1,0 +1,22 @@
+// Shake
+// ---------------------------------
+
+@mixin shake-keyframes() {
+	@-webkit-keyframes shake { @content; }
+	@-moz-keyframes shake { @content; }
+	@-ms-keyframes shake { @content; }
+	@-o-keyframes shake { @content; }
+	@keyframes shake { @content; }
+}
+
+@include shake-keyframes() {
+	0%, 100% {
+		@include transform(translateX(0));
+	}
+	10%, 30%, 50%, 70%, 90% {
+		@include transform(translateX(-10px));
+	}
+	20%, 40%, 60%, 80% {
+		@include transform(translateX(10px));
+	}
+};
