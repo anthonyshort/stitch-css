@@ -22,6 +22,12 @@
 	}
 }
 
+@mixin max-tablet {
+	@media only screen and (max-width : 1024px) {
+		@content;
+	}
+}
+
 @mixin tablet-portrait {
 	@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
 		@content;
