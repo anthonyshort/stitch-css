@@ -13,7 +13,6 @@
 	background-image:image-url($img);
 	background-position: $x-pos $y-pos;
 	background-repeat: no-repeat; 
-	display: inline-block;
 	line-height:image-height($img);
 	text-align: $x-pos; 
 	@if $spacing {
