@@ -1,16 +1,16 @@
-/* Allows a parent element to enclose the full height of the children
- * elements when all of the children are floated.
- * Normally the parent will have no height. 
- * @see http://nicolasgallagher.com/micro-clearfix-hack/
- */
-
+//
+// Allows a parent element to enclose the full height of the children
+// elements when all of the children are floated.
+// Normally the parent will have no height. 
+// @see http://nicolasgallagher.com/micro-clearfix-hack/
+//
 .__clearfix {
-	&::before,
-	&::after {
+	&:before,
+	&:after {
 	    content:"";
 	    display:table;
 	}
-	&::after {
+	&:after {
 	    clear:both;
 	}
 	zoom:1;

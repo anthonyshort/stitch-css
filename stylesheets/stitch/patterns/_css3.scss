@@ -1,5 +1,5 @@
-/* Appearance
----------------------------------------- */
+// Appearance
+// ----------------------------------------
 
 $default-prefixes-appearance: -webkit, -moz;
 
@@ -8,15 +8,15 @@ $default-prefixes-appearance: -webkit, -moz;
 	appearance:$v;
 }
 
-/* Background Clip
----------------------------------------- */
+// Background Clip
+// ----------------------------------------
 
 $default-prefixes-background-clip: -webkit, -moz;
 
 @mixin background-clip($v, $prefixes: $default-prefixes-background-clip) {
 	$v: unquote($v);
 	
-	/* This is for older browser support */
+	// This is for older browser support
 	@if $v === padding-box {
 		@include prefix(background-clip,padding,$default-prefixes-background-origin);
 	}
@@ -33,15 +33,15 @@ $default-prefixes-background-clip: -webkit, -moz;
 	background-clip:$v;
 }
 
-/* Background Origin
----------------------------------------- */
+// Background Origin
+// ----------------------------------------
 
 $default-prefixes-background-origin: -webkit, -moz;
 
 @mixin background-origin($v, $prefixes: $default-prefixes-background-origin) {
 	$v: unquote($v);
 	
-	/* This is for older browser support */
+	// This is for older browser support
 	@if $v === padding-box {
 		@include prefix(background-origin,padding,$default-prefixes-background-origin);
 	}
@@ -54,13 +54,13 @@ $default-prefixes-background-origin: -webkit, -moz;
 		@include prefix(background-origin,content,$default-prefixes-background-origin);
 	}
 	
-	/* Standard version */
+	// Standard version
 	@include prefix(background-origin,$v,$prefixes);
 	background-origin:$v;
 }
 
-/* Background Size
----------------------------------------- */
+// Background Size
+// ----------------------------------------
 
 $default-prefixes-background-size: -webkit, -moz, -o; 
 
@@ -69,8 +69,8 @@ $default-prefixes-background-size: -webkit, -moz, -o;
 	background-size:$v;
 }
 
-/* Border Radius
----------------------------------------- */
+// Border Radius
+// ----------------------------------------
 
 $default-prefixes-border-radius: -webkit, -moz; 
 
@@ -79,8 +79,8 @@ $default-prefixes-border-radius: -webkit, -moz;
 	border-radius:$r;
 }
 
-/* Box Shadow
----------------------------------------- */
+// Box Shadow
+// ----------------------------------------
 
 $default-prefixes-box-shadow: -webkit, -moz; 
 
@@ -89,8 +89,8 @@ $default-prefixes-box-shadow: -webkit, -moz;
 	box-shadow:$v;
 }
 
-/* Flexible Box
----------------------------------------- */
+// Flexible Box
+// ----------------------------------------
 
 $default-prefixes-box: -webkit, -moz;
 
@@ -138,8 +138,8 @@ $default-prefixes-box: -webkit, -moz;
 	box-pack:$v;
 }
 
-/* Box Sizing
----------------------------------------- */
+// Box Sizing
+// ----------------------------------------
 
 $default-prefixes-box-sizing: -webkit, -moz;
 
@@ -148,8 +148,8 @@ $default-prefixes-box-sizing: -webkit, -moz;
 	box-sizing:$v;
 }
 
-/* Columns
----------------------------------------- */
+// Columns
+// ----------------------------------------
 
 $default-prefixes-columns: -webkit, -moz;
 
@@ -188,8 +188,8 @@ $default-prefixes-columns: -webkit, -moz;
 	column-rule:$v;
 }
 
-/* Transforms
----------------------------------------- */
+// Transforms
+// ----------------------------------------
 
 $default-prefixes-transform: -webkit, -moz;
 
@@ -223,12 +223,9 @@ $default-prefixes-transform: -webkit, -moz;
 	backface-visibility:$v;
 }
 
-/* Transitions
----------------------------------------- */
-
-/*
-  @see http://www.w3.org/TR/css3-transitions/
-*/
+// Transitions
+// ----------------------------------------
+// @see http://www.w3.org/TR/css3-transitions/
 
 $default-prefixes-transition: -webkit, -moz;
 
@@ -257,8 +254,8 @@ $default-prefixes-transition: -webkit, -moz;
 	transition:$v;
 }
 
-/* Animation
----------------------------------------- */
+// Animation
+// ----------------------------------------
 
 $default-prefixes-animation: -webkit, -moz;
 
