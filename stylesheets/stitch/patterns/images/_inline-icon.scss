@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* 
 	Add an icon to an inline element. E.g anchor or span
 	Pass through an asset, and optionally a padding value, x-position and y-position.
@@ -16,5 +15,4 @@
    background-repeat: no-repeat; 
    line-height:image-height($img);
    padding-#{$x-pos}:image-width($img) + $spacing;
-   text-align: $x-pos; 
 }
