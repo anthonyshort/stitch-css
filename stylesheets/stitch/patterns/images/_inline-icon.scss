@@ -1,13 +1,7 @@
-/* 
-	Add an icon to an inline element. E.g anchor or span
-	Pass through an asset, and optionally a padding value, x-position and y-position.
-	
-	.icon {
-		@include inline-icon('icons/gowalla_16.png', 30px, right);
-	}
-	
-	<a href="#" class="icon">Sweet icon</a>
-*/
+// 
+// Add an icon to an inline element. E.g anchor or span
+// Pass through an asset, and optionally a padding value, x-position and y-position.
+//
 
 @mixin inline-icon($img, $spacing:5px, $pos: left) {
 	background-image:image-url($img);
