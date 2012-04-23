@@ -1,0 +1,7 @@
+@mixin relative($top:false,$right:false,$bottom:false,$left:false) {
+  position:relative;
+  @if $top    { top:$top; }
+  @if $left   { left:$left; }
+  @if $bottom { bottom:$bottom; }
+  @if $right  { right:$right; }
+}

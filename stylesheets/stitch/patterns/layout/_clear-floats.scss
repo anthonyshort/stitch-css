@@ -5,12 +5,12 @@
 // @see http://nicolasgallagher.com/micro-clearfix-hack/
 //
 .__clearfix {
-	&::before,
-	&::after {
+	&:before,
+	&:after {
 	    content:"";
 	    display:table;
 	}
-	&::after {
+	&:after {
 	    clear:both;
 	}
 	zoom:1;
