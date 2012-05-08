@@ -1,5 +1,6 @@
 @mixin keyframes {
   @-webkit-keyframes { @content; }
   @-moz-keyframes { @content; }
+	@-o-keyframes { @content; }
   @keyframes { @content; }
 }

@@ -191,7 +191,7 @@ $default-prefixes-columns: -webkit, -moz;
 // Transforms
 // ----------------------------------------
 
-$default-prefixes-transform: -webkit, -moz;
+$default-prefixes-transform: -webkit, -moz, -o;
 
 // @see http://www.w3.org/TR/css3-2d-transforms/#transform-property
 @mixin transform($v, $prefixes:$default-prefixes-transform) {
@@ -227,7 +227,7 @@ $default-prefixes-transform: -webkit, -moz;
 // ----------------------------------------
 // @see http://www.w3.org/TR/css3-transitions/
 
-$default-prefixes-transition: -webkit, -moz;
+$default-prefixes-transition: -webkit, -moz, -o;
 
 @mixin transition-property($v, $prefixes:$default-prefixes-transform) {
 	@include prefix(transition-property,$v,$prefixes);
@@ -257,7 +257,7 @@ $default-prefixes-transition: -webkit, -moz;
 // Animation
 // ----------------------------------------
 
-$default-prefixes-animation: -webkit, -moz;
+$default-prefixes-animation: -webkit, -moz, -o;
 
 @mixin animation($v, $prefixes:$default-prefixes-animation) {
 	@include prefix(animation,$v,$prefixes);
