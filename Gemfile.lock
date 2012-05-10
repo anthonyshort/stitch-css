@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    stitch (0.1.4)
+    stitch (0.2.0)
       compass
+      sass (~> 3.2.0.alpha)
 
 GEM
   remote: http://rubygems.org/
@@ -13,7 +14,7 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     fssm (0.2.7)
-    sass (3.1.4)
+    sass (3.2.0.alpha.104)
 
 PLATFORMS
   ruby
