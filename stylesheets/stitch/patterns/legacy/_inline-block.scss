@@ -2,7 +2,7 @@
 //  Cross-browser inline-block.
 //  @see http://www.quirksmode.org/css/display.html
 //
-.__inline-block {
+%stitch-inline-block {
 	display:inline-block;
 
 	// IE7 fix
@@ -11,5 +11,5 @@
 }
 
 @mixin inline-block {
-	@extend .__inline-block;
+	@extend %stitch-inline-block;
 }
