@@ -4,7 +4,7 @@
 // Normally the parent will have no height. 
 // @see http://nicolasgallagher.com/micro-clearfix-hack/
 //
-.%stitch-clearfix {
+%stitch-clearfix {
 	&:before,
 	&:after {
 	    content:"";
