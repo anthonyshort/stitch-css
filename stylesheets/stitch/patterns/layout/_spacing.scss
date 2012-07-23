@@ -1,0 +1,35 @@
+@mixin spacing-classes($base, $list: small normal medium large){
+
+	@for $i from 1 through length($list) {
+
+		.spacing-#{nth(unquote($list), $i)} { 
+			padding: ($base * $i);
+		}
+
+		.spacing-vertical-#{nth(unquote($list), $i)} { 
+			padding-top: ($base * $i);
+			padding-bottom: ($base * $i);
+		}
+
+		.spacing-horizontal-#{nth(unquote($list), $i)} { 
+			padding-right: ($base * $i);
+			padding-left: ($base * $i);
+		}
+
+		.inset-#{nth(unquote($list), $i)} { 
+			margin: ($base * $i);
+		}
+
+		.inset-vertical-#{nth(unquote($list), $i)} { 
+			margin-top: ($base * $i);
+			margin-bottom: ($base * $i);
+		}
+
+		.inset-horizontal-#{nth(unquote($list), $i)} { 
+			margin-right: ($base * $i);
+			margin-left: ($base * $i);
+		}
+	}
+}
+
+//@include spacing-classes(20px, $list: "big" "bigger" "biggerer" "biggest" );
