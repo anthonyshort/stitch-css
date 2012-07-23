@@ -1,4 +1,4 @@
-@mixin spacing-classes($base, $list: small normal medium large){
+@mixin spacing-classes($base: 10px, $list: small normal medium large){
 
 	@for $i from 1 through length($list) {
 
