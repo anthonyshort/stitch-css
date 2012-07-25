@@ -38,6 +38,30 @@
 			margin: (-($base * $i));
 		}
 		
+		.pad-vert-#{nth(unquote($list), $i)} { 
+			padding: ($base * $i) 0;
+		}
+		
+		.pad-horz-#{nth(unquote($list), $i)} { 
+			padding: 0 ($base * $i);
+		}
+		
+		.inset-vert-#{nth(unquote($list), $i)} { 
+			margin: ($base * $i) 0;
+		}
+		
+		.inset-horz-#{nth(unquote($list), $i)} { 
+			margin: 0 ($base * $i);
+		}
+		
+		.offset-vert-#{nth(unquote($list), $i)} { 
+			margin: (-($base * $i)) 0;
+		}
+		
+		.offset-horz-#{nth(unquote($list), $i)} { 
+			margin: 0 (-($base * $i));
+		}
+		
 		@for $j from 1 through length($list) {
 				
 			@if ($i != $j) {
