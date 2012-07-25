@@ -39,34 +39,34 @@
 		}
 	}
 	
-	@for $k from 1 through length($list) {
+	@for $j from 1 through length($list) {
 				
-		@for $l from 1 through length($list) {
+		@for $k from 1 through length($list) {
 				
-			@if ($k != $l) {
+			@if ($j != $k) {
 				
-				.pad-vert-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
-					padding: ($base * $k) 0 ($base * $l);
+				.pad-vert-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
+					padding: ($base * $j) 0 ($base * $k);
 				}
 				
-				.pad-horz-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
-					padding: 0 ($base * $k) 0 ($base * $l);
+				.pad-horz-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
+					padding: 0 ($base * $j) 0 ($base * $k);
 				}
 				
-				.inset-vert-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
-					margin: ($base * $k) 0 ($base * $l);
+				.inset-vert-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
+					margin: ($base * $j) 0 ($base * $k);
 				}
 				
-				.inset-horz-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
-					margin: 0 ($base * $k) 0 ($base * $l);
+				.inset-horz-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
+					margin: 0 ($base * $j) 0 ($base * $k);
 				}
 				
-				.offset-vert-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
-					margin: (-($base * $k)) 0 (-($base * $l));
+				.offset-vert-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
+					margin: (-($base * $j)) 0 (-($base * $k));
 				}
 				
-				.offset-horz-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
-					margin: 0 (-($base * $k)) 0 (-($base * $l));
+				.offset-horz-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
+					margin: 0 (-($base * $j)) 0 (-($base * $k));
 				}
 			}
 		}
