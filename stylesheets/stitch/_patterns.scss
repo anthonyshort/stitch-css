@@ -1,7 +1,6 @@
 @import 'utilities';
 @import 'patterns/accessibility';
 @import 'patterns/animation';
-//@import 'patterns/css3';
 @import 'patterns/color';
 @import 'patterns/forms';
 @import 'patterns/images';
@@ -11,3 +10,6 @@
 @import 'patterns/print';
 @import 'patterns/text';
 @import 'patterns/responsive';
+
+// Disabled by default. Need to opt in to use them
+// @import 'patterns/vendor-prefixes';

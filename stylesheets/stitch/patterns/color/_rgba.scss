@@ -1,15 +1,8 @@
-/*
-  Pass through a property and color value
-*/
-
-/*
-	#header {
-		@include rgba(color, #000, 0.8);  
-		or
-		@include rgba(color, #000);
-	}
-*/
-
+// #header {
+// 	@include rgba(color, #000, 0.8);  
+// 	or
+// 	@include rgba(color, #000);
+// }
 @mixin rgba($property, $color, $alpha:false){
 	#{$property}: $color;
 	@if ($alpha){

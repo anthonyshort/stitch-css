@@ -5,5 +5,5 @@
 //
 @mixin improve-text-rendering {
 	text-rendering:optimizeLegibility;
-	-webkit-font-smoothing:subpixel-antialiased;
+	-webkit-font-smoothing:antialiased;
 }

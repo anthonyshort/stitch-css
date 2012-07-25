@@ -1,7 +1,7 @@
 @mixin ie6-hack {
-  * html { @content }
+  * html & { @content }
 }
 
 @mixin ie7-hack {
-  *+html { @content }
+  *+html & { @content }
 }

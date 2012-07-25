@@ -17,15 +17,15 @@ $default-prefixes-background-clip: -webkit, -moz;
 	$v: unquote($v);
 	
 	// This is for older browser support
-	@if $v === padding-box {
+	@if $v == padding-box {
 		@include prefix(background-clip,padding,$default-prefixes-background-origin);
 	}
 	
-	@if $v === border-box {
+	@if $v == border-box {
 		@include prefix(background-clip,border,$default-prefixes-background-origin);
 	}
 	
-	@if $v === content-box {
+	@if $v == content-box {
 		@include prefix(background-clip,content,$default-prefixes-background-origin);
 	}
 	
@@ -42,15 +42,15 @@ $default-prefixes-background-origin: -webkit, -moz;
 	$v: unquote($v);
 	
 	// This is for older browser support
-	@if $v === padding-box {
+	@if $v == padding-box {
 		@include prefix(background-origin,padding,$default-prefixes-background-origin);
 	}
 	
-	@if $v === border-box {
+	@if $v == border-box {
 		@include prefix(background-origin,border,$default-prefixes-background-origin);
 	}
 	
-	@if $v === content-box {
+	@if $v == content-box {
 		@include prefix(background-origin,content,$default-prefixes-background-origin);
 	}
 	
@@ -191,7 +191,7 @@ $default-prefixes-columns: -webkit, -moz;
 // Transforms
 // ----------------------------------------
 
-$default-prefixes-transform: -webkit, -moz;
+$default-prefixes-transform: -webkit, -moz, -o;
 
 // @see http://www.w3.org/TR/css3-2d-transforms/#transform-property
 @mixin transform($v, $prefixes:$default-prefixes-transform) {
@@ -227,7 +227,7 @@ $default-prefixes-transform: -webkit, -moz;
 // ----------------------------------------
 // @see http://www.w3.org/TR/css3-transitions/
 
-$default-prefixes-transition: -webkit, -moz;
+$default-prefixes-transition: -webkit, -moz, -o;
 
 @mixin transition-property($v, $prefixes:$default-prefixes-transform) {
 	@include prefix(transition-property,$v,$prefixes);
@@ -257,7 +257,7 @@ $default-prefixes-transition: -webkit, -moz;
 // Animation
 // ----------------------------------------
 
-$default-prefixes-animation: -webkit, -moz;
+$default-prefixes-animation: -webkit, -moz, -o;
 
 @mixin animation($v, $prefixes:$default-prefixes-animation) {
 	@include prefix(animation,$v,$prefixes);

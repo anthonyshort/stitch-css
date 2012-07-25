@@ -1,3 +1,3 @@
 module Stitch
-  VERSION = "0.1.4.beta.2"
+  VERSION = "0.1.7.beta.2"
 end
