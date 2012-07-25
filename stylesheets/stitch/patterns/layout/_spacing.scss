@@ -7,14 +7,14 @@
 // Padding
 // ---------------
 // pad-{item}						:  pad-small (padding: 10px)
-// pad-vert-{item}-{item + 1}  	:  pad-vert-small-large (padding: 10px 0 40px 0)
-// pad-horz-{item}-{item + 1}  	:  pad-horz-small-large (padding: 0 10px 0 40px)
+// pad-vert-{item}-{item + 1}  		:  pad-vert-small-large (padding: 10px 0 40px 0)
+// pad-horz-{item}-{item + 1}  		:  pad-horz-small-large (padding: 0 10px 0 40px)
 //
 // Margin
 // ---------------
-// inset-{item}					:  inset-small (margin: 10px)
-// inset-vert-{item}-{item + 1}	:  inset-vert-small-large (margin: 10px 0 40px 0)
-// inset-horz-{item}-{item + 1}	:  inset-horz-small-large (margin: 0 10px 0 40px)
+// inset-{item}						:  inset-small (margin: 10px)
+// inset-vert-{item}-{item + 1}		:  inset-vert-small-large (margin: 10px 0 40px 0)
+// inset-horz-{item}-{item + 1}		:  inset-horz-small-large (margin: 0 10px 0 40px)
 //
 // Offset margin
 // ---------------
@@ -69,6 +69,7 @@
 		}
 	}
 }
+
 // @include spacing-classes();
 // @include spacing-classes($base: 5px);
 // @include spacing-classes($base: 5px, $list: big bigger biggerer evenbiggerer biggest);
