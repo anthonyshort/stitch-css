@@ -1,0 +1,76 @@
+// Generate inline class names for your elements
+//
+// <div class="actions inset-vert-small-large">
+//    <button type="submit">Totes click me!</button>
+// </div>
+//
+// Padding
+// ---------------
+// pad-{item}						:  pad-small (padding: 10px)
+// pad-vert-{item}-{item + 1}  	:  pad-vert-small-large (padding: 10px 0 40px 0)
+// pad-horz-{item}-{item + 1}  	:  pad-horz-small-large (padding: 0 10px 0 40px)
+//
+// Margin
+// ---------------
+// inset-{item}					:  inset-small (margin: 10px)
+// inset-vert-{item}-{item + 1}	:  inset-vert-small-large (margin: 10px 0 40px 0)
+// inset-horz-{item}-{item + 1}	:  inset-horz-small-large (margin: 0 10px 0 40px)
+//
+// Offset margin
+// ---------------
+// offset-{item}					:  offset-small (margin: -10px)
+// offset-vert-{item}-{item + 1}	:  offset-vert-small-large (margin: -10px 0 -40px 0)
+// offset-horz-{item}-{item + 1}	:  offset-horz-small-large (margin: 0 -10px 0 -40px)
+	
+@mixin spacing-classes($base: 10px, $list: small normal medium large){
+	
+	@for $i from 1 through (length($list)) {
+		
+		.pad-#{nth(unquote($list), $i)} { 
+			padding: ($base * $i);
+		}
+		
+		.inset-#{nth(unquote($list), $i)} { 
+			margin: ($base * $i);
+		}
+		
+		.offset-#{nth(unquote($list), $i)} { 
+			margin: (-($base * $i));
+		}
+	}
+	
+	@for $k from 1 through length($list) {
+				
+		@for $l from 1 through length($list) {
+				
+			@if ($k != $l) {
+				
+				.pad-vert-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
+					padding: ($base * $k) 0 ($base * $l);
+				}
+				
+				.pad-horz-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
+					padding: 0 ($base * $k) 0 ($base * $l);
+				}
+				
+				.inset-vert-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
+					margin: ($base * $k) 0 ($base * $l);
+				}
+				
+				.inset-horz-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
+					margin: 0 ($base * $k) 0 ($base * $l);
+				}
+				
+				.offset-vert-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
+					margin: (-($base * $k)) 0 (-($base * $l));
+				}
+				
+				.offset-horz-#{nth(unquote($list), $k)}-#{nth(unquote($list), ($l))} { 
+					margin: 0 (-($base * $k)) 0 (-($base * $l));
+				}
+			}
+		}
+	}
+}
+
+// @include spacing-classes($list: big bigger biggerer evenbiggerer biggest, $base: 5px);
