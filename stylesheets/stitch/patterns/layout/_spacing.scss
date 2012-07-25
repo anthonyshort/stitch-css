@@ -24,7 +24,7 @@
 	
 @mixin spacing-classes($base: 10px, $list: small normal medium large){
 	
-	@for $i from 1 through (length($list)) {
+	@for $i from 1 through length($list) {
 		
 		.pad-#{nth(unquote($list), $i)} { 
 			padding: ($base * $i);
@@ -37,40 +37,39 @@
 		.offset-#{nth(unquote($list), $i)} { 
 			margin: (-($base * $i));
 		}
-	}
-	
-	@for $j from 1 through length($list) {
+		
+		@for $j from 1 through length($list) {
 				
-		@for $k from 1 through length($list) {
+			@if ($i != $j) {
 				
-			@if ($j != $k) {
-				
-				.pad-vert-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
-					padding: ($base * $j) 0 ($base * $k);
+				.pad-vert-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
+					padding: ($base * $i) 0 ($base * $j);
 				}
 				
-				.pad-horz-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
-					padding: 0 ($base * $j) 0 ($base * $k);
+				.pad-horz-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
+					padding: 0 ($base * $i) 0 ($base * $j);
 				}
 				
-				.inset-vert-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
-					margin: ($base * $j) 0 ($base * $k);
+				.inset-vert-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
+					margin: ($base * $i) 0 ($base * $j);
 				}
 				
-				.inset-horz-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
-					margin: 0 ($base * $j) 0 ($base * $k);
+				.inset-horz-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
+					margin: 0 ($base * $i) 0 ($base * $j);
 				}
 				
-				.offset-vert-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
-					margin: (-($base * $j)) 0 (-($base * $k));
+				.offset-vert-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
+					margin: (-($base * $i)) 0 (-($base * $j));
 				}
 				
-				.offset-horz-#{nth(unquote($list), $j)}-#{nth(unquote($list), ($k))} { 
-					margin: 0 (-($base * $j)) 0 (-($base * $k));
+				.offset-horz-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
+					margin: 0 (-($base * $i)) 0 (-($base * $j));
 				}
 			}
 		}
 	}
 }
-
-// @include spacing-classes($list: big bigger biggerer evenbiggerer biggest, $base: 5px);
+// @include spacing-classes();
+// @include spacing-classes($base: 5px);
+// @include spacing-classes($base: 5px, $list: big bigger biggerer evenbiggerer biggest);
+// @include spacing-classes($list: big bigger biggerer evenbiggerer biggest);
