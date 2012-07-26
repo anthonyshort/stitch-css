@@ -39,27 +39,33 @@
 		}
 		
 		.pad-vert-#{nth(unquote($list), $i)} { 
-			padding: ($base * $i) 0;
+			padding-top: ($base * $i);
+			padding-bottom: ($base * $i);
 		}
 		
 		.pad-horz-#{nth(unquote($list), $i)} { 
-			padding: 0 ($base * $i);
+			padding-right: ($base * $i);
+			padding-left: ($base * $i);
 		}
 		
 		.inset-vert-#{nth(unquote($list), $i)} { 
-			margin: ($base * $i) 0;
+			margin-top: ($base * $i);
+			margin-bottom: ($base * $i);
 		}
 		
 		.inset-horz-#{nth(unquote($list), $i)} { 
-			margin: 0 ($base * $i);
+			margin-right: ($base * $i);
+			margin-left: ($base * $i);
 		}
 		
 		.offset-vert-#{nth(unquote($list), $i)} { 
-			margin: (-($base * $i)) 0;
+			margin-top: (-($base * $i));
+			margin-bottom: (-($base * $i));
 		}
 		
 		.offset-horz-#{nth(unquote($list), $i)} { 
-			margin: 0 (-($base * $i));
+			margin-right: (-($base * $i));
+			margin-left: (-($base * $i));
 		}
 		
 		@for $j from 1 through length($list) {
@@ -67,27 +73,33 @@
 			@if ($i != $j) {
 				
 				.pad-vert-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					padding: ($base * $i) 0 ($base * $j);
+					padding-top: ($base * $i);
+					padding-bottom: ($base * $j);
 				}
 				
 				.pad-horz-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					padding: 0 ($base * $i) 0 ($base * $j);
+					padding-right: ($base * $i);
+					padding-left: ($base * $j);
 				}
 				
 				.inset-vert-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					margin: ($base * $i) 0 ($base * $j);
+					margin-top: ($base * $i);
+					margin-bottom: ($base * $j);
 				}
 				
 				.inset-horz-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					margin: 0 ($base * $i) 0 ($base * $j);
+					margin-right: ($base * $i);
+					margin-left: ($base * $j);
 				}
 				
 				.offset-vert-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					margin: (-($base * $i)) 0 (-($base * $j));
+					margin-top: (-($base * $i));
+					margin-bottom: (-($base * $j));
 				}
 				
 				.offset-horz-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					margin: 0 (-($base * $i)) 0 (-($base * $j));
+					margin-right: (-($base * $i));
+					margin-left: (-($base * $j));
 				}
 			}
 		}
