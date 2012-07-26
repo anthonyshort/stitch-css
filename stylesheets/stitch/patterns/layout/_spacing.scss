@@ -37,7 +37,63 @@
 		.offset-#{nth(unquote($list), $i)} { 
 			margin: (-($base * $i));
 		}
+
+		.pad-top-#{nth(unquote($list), $i)} { 
+			padding-top: ($base * $i);
+		}
 		
+		.pad-right-#{nth(unquote($list), $i)} { 
+			padding-right: ($base * $i);
+		}
+		
+		.pad-bottom-#{nth(unquote($list), $i)} { 
+			padding-bottom: ($base * $i);
+		}
+		
+		.pad-left-#{nth(unquote($list), $i)} { 
+			padding-left: ($base * $i);
+		}
+
+		.inset-top-#{nth(unquote($list), $i)} { 
+			margin-top: ($base * $i);
+		}
+		
+		.inset-right-#{nth(unquote($list), $i)} { 
+			margin-right: ($base * $i);
+		}
+		
+		.inset-bottom-#{nth(unquote($list), $i)} { 
+			margin-bottom: ($base * $i);
+		}
+		
+		.inset-left-#{nth(unquote($list), $i)} { 
+			margin-left: ($base * $i);
+		}
+
+		.outset-top-#{nth(unquote($list), $i)} { 
+			margin-top: (-($base * $i));
+		}
+		
+		.outset-right-#{nth(unquote($list), $i)} { 
+			margin-right: (-($base * $i));
+		}
+		
+		.outset-bottom-#{nth(unquote($list), $i)} { 
+			margin-bottom: (-($base * $i));
+		}
+		
+		.outset-left-#{nth(unquote($list), $i)} { 
+			margin-left: (-($base * $i));
+		}
+
+		.inset-#{nth(unquote($list), $i)} { 
+			margin: ($base * $i);
+		}
+		
+		.offset-#{nth(unquote($list), $i)} { 
+			margin: (-($base * $i));
+		}
+
 		.pad-vert-#{nth(unquote($list), $i)} { 
 			padding-top: ($base * $i);
 			padding-bottom: ($base * $i);
