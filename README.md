@@ -14,6 +14,20 @@ By breaking these patterns into reusable classes and mixins we can:
 
 	sudo gem install stitch
 
+	
+Add it to your Compass config.rb
+
+	require 'stitch'
+
+Import it into your Sass
+
+	@import 'stitch';
+
+Or import it in parts
+
+	@import 'stitch/reset';
+	@import 'stitch/patterns';
+
 ## With Bower
 
 ```
@@ -25,19 +39,6 @@ Then include it into your projects:
 ```scss
 @import 'components/stitch-css/stylesheets/stitch';
 ```
-	
-## Add it to your Compass config.rb
-
-	require 'stitch'
-
-## Import it into your Sass
-
-	@import 'stitch';
-
-## Or import it in parts
-
-	@import 'stitch/reset';
-	@import 'stitch/patterns';
 
 ## Patterns
 
