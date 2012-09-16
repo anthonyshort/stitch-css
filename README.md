@@ -10,9 +10,21 @@ By breaking these patterns into reusable classes and mixins we can:
 * Only have to write them once
 * Are updatable when newer methods are discovered by updating the framework
 
-## Get Stitch
+## As Compass Extension
 
 	sudo gem install stitch
+
+## With Bower
+
+```
+bower install stitch-css
+```
+
+Then include it into your projects:
+
+```scss
+@import 'components/stitch-css/stylesheets/stitch';
+```
 	
 ## Add it to your Compass config.rb
 
