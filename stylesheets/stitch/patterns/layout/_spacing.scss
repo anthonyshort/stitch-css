@@ -157,31 +157,6 @@
 					margin-right: (-($base * $i));
 					margin-left: (-($base * $j));
 				}
-
-				// Now you can have pad-normal-small, 
-				// which renders  
-				// {padding-top: 20px; padding-right: 10px; padding-bottom: 20px; padding-left: 10px;}
-				
-				.pad-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					padding-top: ($base * $i);
-					padding-right: ($base * $j);
-					padding-bottom: ($base * $i);
-					padding-left: ($base * $j);	
-				}
-				
-				.inset-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					margin-top: ($base * $i);
-					margin-right: ($base * $j);
-					margin-bottom: ($base * $i);
-					margin-left: ($base * $j);
-				}
-				
-				.offset-#{nth(unquote($list), $i)}-#{nth(unquote($list), ($j))} { 
-					margin-top: (-($base * $i));
-					margin-right: (-($base * $j));
-					margin-bottom: (-($base * $i));
-					margin-left: (-($base * $j));
-				}
 			}
 		}
 	}
