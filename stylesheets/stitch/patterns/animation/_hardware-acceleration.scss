@@ -1,4 +1,0 @@
-// Forces the browser to render animation on the element with hardware acceleration
-@mixin enable-hardware-acceleration {
-  -webkit-transform:translate3d(0,0,0);
-}

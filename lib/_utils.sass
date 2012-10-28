@@ -1,0 +1,176 @@
+// Placeholder Classes
+
+%stitch-image-replace
+	display             : block
+	text-indent         : 9999em
+	overflow            : hidden
+  background-repeat   : no-repeat
+	text-align          : left
+	direction           : ltr
+
+// Allows a parent element to enclose the full height of the children
+// elements when all of the children are floated.
+// Normally the parent will have no height. 
+// http://nicolasgallagher.com/micro-clearfix-hack/
+%stitch-clearfix
+	zoom: 1
+	&:before,
+	&:after
+	  content:""
+	  display:table
+	&:after
+	  clear:both
+
+// Image Classes
+// ----------------------------------------
+
+// Removes any text from an element and replaces it with an image
+@mixin image-replace($img)
+	@extend %stitch-image-replace
+	height: image-height($img)
+	width: image-width($img)
+	background-image: image-url($img)
+
+// Add an icon to an inline element. E.g anchor or span
+// Pass through an asset, and optionally a padding value, x-position and y-position.
+@mixin image-inline($img, $spacing: 5px, $side: left)
+	background-image: image-url($img)
+	background-repeat: no-repeat
+	line-height: image-height($img)
+	padding-#{$side}: image-width($img) + $spacing
+	@if $side == right {
+		background-position: right top
+	@else
+		background-position: left top
+
+@mixin vertical-gradient($from, $to)
+  background: $from; /* Old browsers */
+  background: -moz-linear-gradient(top, $from, $to)
+  background: -webkit-linear-gradient(top, $from, $to)
+  background: linear-gradient(top, $from, $to)
+
+@mixin horizontal-gradient($from, $to)
+  background: $from; /* Old browsers */
+  background: -moz-linear-gradient(left, $from, $to)
+  background: -webkit-linear-gradient(left, $from, $to)
+  background: linear-gradient(left, $from, $to)
+
+// Accessibility
+// ----------------------------------------
+
+// Hide for both screenreaders and browsers
+//   css-discuss.incutio.com/wiki/Screenreader_Visibility
+@mixin hide
+	display: none !important
+	visibility: hidden !important
+
+@mixin show
+  display: block !important
+  visibilitity: visible !important
+
+// Hide only visually, but have it available for screenreaders 
+//   www.webaim.org/techniques/css/invisiblecontent/ 
+//   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal!
+@mixin screenreaders-only
+	position: absolute !important
+  overflow: hidden
+  width: 1px
+  height: 1px
+  padding: 0
+  border: 0
+  clip: rect(1px, 1px, 1px, 1px)
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible
+	visibility: hidden
+
+@mixin disable-selection
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+  cursor:default
+
+// Layout Helpers
+// ----------------------------------------
+
+@mixin center
+	margin-left: auto
+	margin-right: auto
+
+@mixin clear-floats
+	@extend %stitch-clearfix
+
+// Media block.
+@mixin media-block
+	&:first-child
+		float: left
+	&:first-child + *
+		overflow: hidden
+
+@mixin block-media
+  &:first-child
+    overflow: hidden
+  &:first-child + *
+    float: right
+
+@mixin move-up($x)
+  position:relative
+  top:-$x
+
+@mixin move-down($x)
+  position:relative
+  top:$x
+
+@mixin move-left($x)
+  position:relative
+  left:-$x
+
+@mixin move-right($x)
+  position:relative
+  left:$x
+
+@mixin top-left($x:0, $y:0)
+  position: absolute
+  top: $y
+  left: $x
+
+@mixin top-right($x:0, $y:0)
+  position: absolute
+  top: $y
+  right: $x
+
+@mixin bottom-right($x:0, $y:0)
+  position: absolute
+  right: $x
+  bottom: $y
+
+@mixin bottom-left($x:0, $y:0)
+  position: absolute
+  bottom: $y
+  left: $x
+
+@mixin show-pseudo-element
+  content:''
+  display:block
+
+// Forces the browser to render animation on the element with hardware acceleration
+@mixin enable-hardware-acceleration
+  -webkit-transform: translate3d(0,0,0)
+
+// Easily style all form inputs that are standard text fields
+@mixin text-inputs
+  input[type="email"], 
+  input[type="number"],   
+  input[type="password"], 
+  input[type="search"],
+  input[type="tel"],   
+  input[type="text"],     
+  input[type="url"],      
+  input[type="color"],
+  input[type="date"],  
+  input[type="datetime"], 
+  input[type="datetime-local"],
+  input[type="month"], 
+  input[type="time"],     
+  input[type="week"]
+    @content

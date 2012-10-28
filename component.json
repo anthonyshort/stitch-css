@@ -1,5 +1,5 @@
 {
   "name": "stitch-css",
-  "version": "0.1.7",
-  "main": "./stylesheets/_stitch.scss"
+  "version": "0.2.0",
+  "main": "stitch.sass"
 }

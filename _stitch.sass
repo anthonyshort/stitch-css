@@ -1,0 +1,886 @@
+// Placeholder Classes
+
+%stitch-image-replace
+	display             : block
+	text-indent         : 9999em
+	overflow            : hidden
+  background-repeat   : no-repeat
+	text-align          : left
+	direction           : ltr
+
+// Allows a parent element to enclose the full height of the children
+// elements when all of the children are floated.
+// Normally the parent will have no height. 
+// http://nicolasgallagher.com/micro-clearfix-hack/
+%stitch-clearfix
+	zoom: 1
+	&:before,
+	&:after
+	  content:""
+	  display:table
+	&:after
+	  clear:both
+
+// Image Classes
+// ----------------------------------------
+
+// Removes any text from an element and replaces it with an image
+@mixin image-replace($img)
+	@extend %stitch-image-replace
+	height: image-height($img)
+	width: image-width($img)
+	background-image: image-url($img)
+
+// Add an icon to an inline element. E.g anchor or span
+// Pass through an asset, and optionally a padding value, x-position and y-position.
+@mixin image-inline($img, $spacing: 5px, $side: left)
+	background-image: image-url($img)
+	background-repeat: no-repeat
+	line-height: image-height($img)
+	padding-#{$side}: image-width($img) + $spacing
+	@if $side == right {
+		background-position: right top
+	@else
+		background-position: left top
+
+@mixin vertical-gradient($from, $to)
+  background: $from; /* Old browsers */
+  background: -moz-linear-gradient(top, $from, $to)
+  background: -webkit-linear-gradient(top, $from, $to)
+  background: linear-gradient(top, $from, $to)
+
+@mixin horizontal-gradient($from, $to)
+  background: $from; /* Old browsers */
+  background: -moz-linear-gradient(left, $from, $to)
+  background: -webkit-linear-gradient(left, $from, $to)
+  background: linear-gradient(left, $from, $to)
+
+// Accessibility
+// ----------------------------------------
+
+// Hide for both screenreaders and browsers
+//   css-discuss.incutio.com/wiki/Screenreader_Visibility
+@mixin hide
+	display: none !important
+	visibility: hidden !important
+
+@mixin show
+  display: block !important
+  visibilitity: visible !important
+
+// Hide only visually, but have it available for screenreaders 
+//   www.webaim.org/techniques/css/invisiblecontent/ 
+//   Solution from: j.mp/visuallyhidden - Thanks Jonathan Neal!
+@mixin screenreaders-only
+	position: absolute !important
+  overflow: hidden
+  width: 1px
+  height: 1px
+  padding: 0
+  border: 0
+  clip: rect(1px, 1px, 1px, 1px)
+
+// Hide visually and from screenreaders, but maintain layout
+@mixin invisible
+	visibility: hidden
+
+@mixin disable-selection
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+  cursor:default
+
+// Layout Helpers
+// ----------------------------------------
+
+@mixin center
+	margin-left: auto
+	margin-right: auto
+
+@mixin clear-floats
+	@extend %stitch-clearfix
+
+// Media block.
+@mixin media-block
+	&:first-child
+		float: left
+	&:first-child + *
+		overflow: hidden
+
+@mixin block-media
+  &:first-child
+    overflow: hidden
+  &:first-child + *
+    float: right
+
+@mixin move-up($x)
+  position:relative
+  top:-$x
+
+@mixin move-down($x)
+  position:relative
+  top:$x
+
+@mixin move-left($x)
+  position:relative
+  left:-$x
+
+@mixin move-right($x)
+  position:relative
+  left:$x
+
+@mixin top-left($x:0, $y:0)
+  position: absolute
+  top: $y
+  left: $x
+
+@mixin top-right($x:0, $y:0)
+  position: absolute
+  top: $y
+  right: $x
+
+@mixin bottom-right($x:0, $y:0)
+  position: absolute
+  right: $x
+  bottom: $y
+
+@mixin bottom-left($x:0, $y:0)
+  position: absolute
+  bottom: $y
+  left: $x
+
+@mixin show-pseudo-element
+  content:''
+  display:block
+
+// Forces the browser to render animation on the element with hardware acceleration
+@mixin enable-hardware-acceleration
+  -webkit-transform: translate3d(0,0,0)
+
+// Easily style all form inputs that are standard text fields
+@mixin text-inputs
+  input[type="email"], 
+  input[type="number"],   
+  input[type="password"], 
+  input[type="search"],
+  input[type="tel"],   
+  input[type="text"],     
+  input[type="url"],      
+  input[type="color"],
+  input[type="date"],  
+  input[type="datetime"], 
+  input[type="datetime-local"],
+  input[type="month"], 
+  input[type="time"],     
+  input[type="week"]
+    @content
+
+// Prefix properties and values 
+// ----------------------------------------
+
+$default-prefixes: -webkit, -moz
+
+@mixin prefix($property, $value, $prefixes: $default-prefixes)
+  
+  // Unquote the values
+  $property: unquote($property)
+  $value: unquote($value)
+  
+  // Loop through the prefixes given
+  @each $prefix in $prefixes
+    #{$prefix}-#{$property}: $value
+
+@mixin prefix-value($property, $value, $prefixes: $default-prefixes)
+  
+  // Unquote the values
+  $property: unquote($property)
+  $value: unquote($value)
+  
+  // Loop through the prefixes given
+  @each $prefix in $prefixes
+    #{$property}: #{$prefix}-#{$value}
+
+// Keyframe Animation
+// ----------------------------------------
+
+@mixin keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-o-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+// Appearance
+// ----------------------------------------
+
+$default-prefixes-appearance: -webkit, -moz;
+
+@mixin appearance($v, $prefixes: $default-prefixes-appearance) {
+  @include prefix(appearance,$v,$prefixes);
+  appearance:$v;
+}
+
+// Background Clip
+// ----------------------------------------
+
+$default-prefixes-background-clip: -webkit, -moz;
+
+@mixin background-clip($v, $prefixes: $default-prefixes-background-clip) {
+  $v: unquote($v);
+  @include prefix(background-clip,$v,$prefixes);
+  background-clip:$v;
+}
+
+// Background Origin
+// ----------------------------------------
+
+$default-prefixes-background-origin: -webkit, -moz;
+
+@mixin background-origin($v, $prefixes: $default-prefixes-background-origin) {
+  $v: unquote($v);
+  @include prefix(background-origin,$v,$prefixes);
+  background-origin:$v;
+}
+
+// Background Size
+// ----------------------------------------
+
+$default-prefixes-background-size: -webkit, -moz, -o; 
+
+@mixin background-size($v, $prefixes: $default-prefixes-background-size) {
+  @include prefix(background-size,$v,$prefixes);
+  background-size:$v;
+}
+
+// Border Radius
+// ----------------------------------------
+
+$default-prefixes-border-radius: -webkit, -moz; 
+
+@mixin border-radius($r, $prefixes: $default-prefixes-border-radius) {
+  @include prefix(border-radius,$r,$prefixes);
+  border-radius:$r;
+}
+
+// Box Shadow
+// ----------------------------------------
+
+$default-prefixes-box-shadow: -webkit, -moz; 
+
+@mixin box-shadow($v, $prefixes: $default-prefixes-box-shadow) {
+  @include prefix(box-shadow,$v,$prefixes);
+  box-shadow:$v;
+}
+
+// Flexible Box
+// ----------------------------------------
+
+$default-prefixes-box: -webkit, -moz;
+
+@mixin display-box($prefixes: $default-prefixes-box) {
+  @include prefix-value(display,box,$prefixes);
+}
+
+@mixin box-orient($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-orient,$v,$prefixes);
+  box-orient:$v;
+}
+
+@mixin box-align($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-align,$v,$prefixes);
+  box-align:$v;
+}
+
+@mixin box-flex($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-flex,$v,$prefixes);
+  box-flex:$v;
+}
+
+@mixin box-flex-group($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-flex-group,$v,$prefixes);
+  box-flex-group:$v;
+}
+
+@mixin box-ordinal-group($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-ordinal-group,$v,$prefixes);
+  box-ordinal-group:$v;
+}
+
+@mixin box-direction($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-direction,$v,$prefixes);
+  box-direction:$v;
+}
+
+@mixin box-lines($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-direction,$v,$prefixes);
+  box-lines:$v;
+}
+
+@mixin box-pack($v, $prefixes: $default-prefixes-box) {
+  @include prefix(box-direction,$v,$prefixes);
+  box-pack:$v;
+}
+
+// Box Sizing
+// ----------------------------------------
+
+$default-prefixes-box-sizing: -webkit, -moz;
+
+@mixin box-sizing($v, $prefixes: $default-prefixes-box-sizing) {
+  @include prefix(box-sizing,$v,$prefixes);
+  box-sizing:$v;
+}
+
+// Columns
+// ----------------------------------------
+
+$default-prefixes-columns: -webkit, -moz;
+
+@mixin column-count($v, $prefixes: $default-prefixes-columns) {
+  @include prefix(column-count,$v,$prefixes);
+  column-count:$v;
+}
+
+@mixin column-gap($v, $prefixes: $default-prefixes-columns) {
+  @include prefix(column-gap,$v,$prefixes);
+  column-gap:$v;
+}
+
+@mixin column-width($v, $prefixes: $default-prefixes-columns) {
+  @include prefix(column-width,$v,$prefixes);
+  column-width:$v;
+}
+
+@mixin column-rule-width($v, $prefixes: $default-prefixes-columns) {
+  @include prefix(column-rule-width,$v,$prefixes);
+  column-rule-width:$v;
+}
+
+@mixin column-rule-style($v, $prefixes: $default-prefixes-columns) {
+  @include prefix(column-rule-style,$v,$prefixes);
+  column-rule-style:$v;
+}
+
+@mixin column-rule-color($v, $prefixes: $default-prefixes-columns) {
+  @include prefix(column-rule-color,$v,$prefixes);
+  column-rule-color:$v;
+}
+
+@mixin column-rule($v, $prefixes: $default-prefixes-columns) {
+  @include prefix(column-rule,$v,$prefixes);
+  column-rule:$v;
+}
+
+// Transforms
+// ----------------------------------------
+
+$default-prefixes-transform: -webkit, -moz, -o;
+
+// @see http://www.w3.org/TR/css3-2d-transforms/#transform-property
+@mixin transform($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transform,$v,$prefixes);
+  transform:$v;
+}
+
+// @see http://www.w3.org/TR/css3-2d-transforms/#transform-origin-property
+@mixin transform-origin($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transform-origin,$v,$prefixes);
+  transform-origin:$v;
+}
+
+// @see http://www.w3.org/TR/css3-3d-transforms/#transform-style
+@mixin transform-style($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transform-style,$v,$prefixes);
+  transform-style:$v;
+}
+
+// @see http://www.w3.org/TR/css3-3d-transforms/#perspective
+@mixin perspective-origin($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(perspective-origin,$v,$prefixes);
+  perspective-origin:$v;
+}
+
+// @see http://www.w3.org/TR/css3-3d-transforms/#backface-visibility
+@mixin backface-visibility($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(backface-visibility,$v,$prefixes);
+  backface-visibility:$v;
+}
+
+// Transitions
+// ----------------------------------------
+// @see http://www.w3.org/TR/css3-transitions/
+
+$default-prefixes-transition: -webkit, -moz, -o;
+
+@mixin transition-property($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transition-property,$v,$prefixes);
+  transition-property:$v;
+}
+
+@mixin transition-duration($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transition-duration,$v,$prefixes);
+  transition-duration:$v;
+}
+
+@mixin transition-timing-function($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transition-timing-function,$v,$prefixes);
+  transition-timing-function:$v;
+}
+
+@mixin transition-delay($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transition-delay,$v,$prefixes);
+  transition-delay:$v;
+}
+
+@mixin transition($v, $prefixes:$default-prefixes-transform) {
+  @include prefix(transition,$v,$prefixes);
+  transition:$v;
+}
+
+// Animation
+// ----------------------------------------
+
+$default-prefixes-animation: -webkit, -moz, -o;
+
+@mixin animation($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation,$v,$prefixes);
+  animation:$v;
+}
+
+@mixin animation-name($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation-name,$v,$prefixes);
+  animation-name:$v;
+}
+
+@mixin animation-duration($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation-name,$v,$prefixes);
+  animation-duration:$v;
+}
+
+@mixin animation-timing-function($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation-name,$v,$prefixes);
+  animation-timing-function:$v;
+}
+
+@mixin animation-iteration-count($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation-name,$v,$prefixes);
+  animation-iteration-count:$v;
+}
+
+@mixin animation-direction($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation-name,$v,$prefixes);
+  animation-direction:$v;
+}
+
+@mixin animation-play-state($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation-name,$v,$prefixes);
+  animation-play-state:$v;
+}
+
+@mixin animation-delay($v, $prefixes:$default-prefixes-animation) {
+  @include prefix(animation-name,$v,$prefixes);
+  animation-delay:$v;
+}
+
+// Easing methods for animations
+
+@function linear()
+  @return cubic-bezier(0.250, 0.250, 0.750, 0.750)
+
+@function ease()
+  @return cubic-bezier(0.250, 0.100, 0.250, 1.000)
+
+@function ease-in()
+  @return cubic-bezier(0.420, 0.000, 1.000, 1.000)
+
+@function ease-in-quad()
+  @return cubic-bezier(0.550, 0.085, 0.680, 0.530)
+
+@function ease-in-cubic()
+  @return cubic-bezier(0.550, 0.055, 0.675, 0.190)
+
+@function ease-in-quart()
+  @return cubic-bezier(0.895, 0.030, 0.685, 0.220)
+
+@function ease-in-quint()
+  @return cubic-bezier(0.755, 0.050, 0.855, 0.060)
+
+@function ease-in-sine()
+  @return cubic-bezier(0.470, 0.000, 0.745, 0.715)
+
+@function ease-in-expo()
+  @return cubic-bezier(0.950, 0.050, 0.795, 0.035)
+
+@function ease-in-circ()
+  @return cubic-bezier(0.600, 0.040, 0.980, 0.335)
+
+@function ease-out()
+  @return cubic-bezier(0.000, 0.000, 0.580, 1.000)
+
+@function ease-out-quad()
+  @return cubic-bezier(0.250, 0.460, 0.450, 0.940)
+
+@function ease-out-cubic()
+  @return cubic-bezier(0.215, 0.610, 0.355, 1.000)
+
+@function ease-out-quart()
+  @return cubic-bezier(0.165, 0.840, 0.440, 1.000)
+
+@function ease-out-quint()
+  @return cubic-bezier(0.230, 1.000, 0.320, 1.000)
+
+@function ease-out-sine()
+  @return cubic-bezier(0.390, 0.575, 0.565, 1.000)
+
+@function ease-out-expo()
+  @return cubic-bezier(0.190, 1.000, 0.220, 1.000)
+
+@function ease-out-circ()
+  @return cubic-bezier(0.075, 0.820, 0.165, 1.000)
+
+@function ease-in-out()
+  @return cubic-bezier(0.420, 0.000, 0.580, 1.000)
+
+@function ease-in-out-quad()
+  @return cubic-bezier(0.455, 0.030, 0.515, 0.955)
+
+@function ease-in-out-cubic()
+  @return cubic-bezier(0.645, 0.045, 0.355, 1.000)
+
+@function ease-in-out-quart()
+  @return cubic-bezier(0.770, 0.000, 0.175, 1.000)
+
+@function ease-in-out-quint()
+  @return cubic-bezier(0.860, 0.000, 0.070, 1.000)
+
+@function ease-in-out-sine()
+  @return cubic-bezier(0.445, 0.050, 0.550, 0.950)
+
+@function ease-in-out-expo()
+  @return cubic-bezier(1.000, 0.000, 0.000, 1.000)
+
+@function ease-in-out-circ()
+  @return cubic-bezier(0.785, 0.135, 0.150, 0.860)
+// Media Queries in Sass 3.2
+//
+// These mixins make media queries a breeze with Sass.
+// The media queries from mobile up until desktop all 
+// trigger at different points along the way
+//
+// And important point to remember is that and width
+// over the portrait width is considered to be part of the
+// landscape width. This allows us to capture widths of devices
+// that might not fit the dimensions exactly. This means the break
+// points are seamless.
+
+$mq-mobile-portrait   : 320px !default;
+$mq-mobile-landscape  : 480px !default;
+$mq-tablet-portrait   : 768px !default;
+$mq-tablet-landscape  : 1024px !default;
+$mq-desktop           : 1382px !default;
+
+// Both portrait and landscape
+@mixin mobile
+  @media (max-width : $mq-mobile-landscape)
+    @content
+
+// Everything up to and including the portrait width of the phone
+// Since it's the smallest query it doesn't need a min
+@mixin mobile-portrait
+  @media (max-width : $mq-mobile-portrait)
+    @content
+
+// Everything up to and including the mobile portrait
+@mixin mobile-portrait-and-below
+  @media (max-width : $mq-mobile-portrait)
+    @content
+
+// Everything above and including the mobile portrait
+@mixin mobile-portrait-and-up
+  @media (min-width : $mq-mobile-portrait)
+    @content
+
+// Everthing larger than a portrait mobile up until mobile landscape
+@mixin mobile-landscape
+  @media only screen and (min-width : $mq-mobile-portrait + 1) and (max-width : $mq-mobile-landscape)
+    @content
+
+// Everything up to and including the mobile landscape width
+@mixin mobile-landscape-and-below
+  @media only screen and (max-width : $mq-mobile-landscape)
+    @content
+
+// Everything above and including the mobile landscape width
+@mixin mobile-landscape-and-up
+  @media only screen and (min-width : $mq-mobile-portrait + 1)
+    @content
+
+// Both the portrait and landscape width of the tablet
+// Larger than a landscape mobile but less than or equal to a landscape tablet
+@mixin tablet
+  @media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet-landscape)
+    @content
+
+// Everything larger than mobile landscape up until the portrait width of the tablet
+@mixin tablet-portrait
+  @media only screen and (min-width : $mq-mobile-landscape + 1) and (max-width : $mq-tablet-portrait)
+    @content
+
+// Everything below and including the portrait width of the tablet
+@mixin tablet-portrait-and-below
+  @media only screen and (max-width : $mq-tablet-portrait)
+    @content
+
+// Everything above and including the portrait width of the tablet
+@mixin tablet-portrait-and-up
+  @media only screen and (min-width : $mq-mobile-landscape + 1)
+    @content
+
+// Larger than portrait but less than or equal to the landscape width
+@mixin tablet-landscape
+  @media only screen and (min-width : $mq-tablet-portrait + 1) and (max-width : $mq-tablet-landscape)
+    @content
+
+// Up to and including the tablet landscape
+@mixin tablet-landscape-and-below
+  @media only screen and (max-width : $mq-tablet-landscape)
+    @content
+
+// Everything larger than portrait tablet
+@mixin tablet-landscape-and-up
+  @media only screen and (min-width : $mq-tablet-portrait + 1)
+    @content
+
+// Everything larger than a landscape tablet
+@mixin desktop-and-up
+  @media only screen and (min-width : $mq-tablet-landscape + 1)
+    @content
+
+// Everything below and including the desktop 
+@mixin desktop-and-below
+  @media only screen and (max-width : $mq-desktop)
+    @content
+
+// Everything larger than a landscape tablet but less than or equal to the desktop
+@mixin desktop
+  @media only screen and (min-width : $mq-tablet-landscape + 1) and (max-width : $mq-desktop)
+    @content
+
+// Retina screens have a 1.5 pixel ratio, not 2
+@mixin retina
+  @media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5)
+    @content
+// Generate inline class names for your elements
+//
+// <div class="actions inset-vert-small">
+//    <button type="submit">Totes click me!</button>
+// </div>
+
+$spacing-sizes: small normal medium large !default
+$spacing-base: 10px !default
+
+@function spacing($n)
+  @return $n * $spacing-base
+
+.flush
+  padding: 0
+  margin: 0
+
+@for $i from 1 through length($spacing-sizes)
+
+  $size: nth($spacing-sizes, $i)
+
+  // Padding
+
+  .pad-#{$size}
+    padding: spacing($i)
+
+  .pad-top-#{$size}
+    padding-top: spacing($i)
+  
+  .pad-right-#{$size}
+    padding-right: spacing($i)
+  
+  .pad-bottom-#{$size}
+    padding-bottom: spacing($i)
+  
+  .pad-left-#{$size}
+    padding-left: spacing($i)
+
+  .pad-vert-#{$size}
+    padding-top: spacing($i)
+    padding-bottom: spacing($i)
+  
+  .pad-horz-#{$size}
+    padding-right: spacing($i)
+    padding-left: spacing($i)
+  
+  // Margin Classes
+
+  .inset-#{$size}
+    margin: spacing($i)
+
+  .inset-top-#{$size}
+    margin-top: spacing($i)
+  
+  .inset-right-#{$size}
+    margin-right: spacing($i)
+
+  .inset-bottom-#{$size}
+    margin-bottom: spacing($i)
+  
+  .inset-left-#{$size}
+    margin-left: spacing($i)
+
+  .inset-vert-#{$size} 
+    margin-top: spacing($i)
+    margin-bottom: spacing($i)
+  
+  .inset-horz-#{$size}
+    margin-right: spacing($i)
+    margin-left: spacing($i)
+
+  // Negative Margin Classes
+
+  .outset-#{$size}
+    margin: spacing(-$i)
+
+  .outset-top-#{$size}
+    margin-top: spacing(-$i)
+  
+  .outset-right-#{$size}
+    margin-right: spacing(-$i)
+
+  .outset-bottom-#{$size}
+    margin-bottom: spacing(-$i)
+  
+  .outset-left-#{$size}
+    margin-left: spacing(-$i)
+  
+  .outset-vert-#{$size}
+    margin-top: spacing(-$i)
+    margin-bottom: spacing(-$i)
+  
+  .outset-horz-#{$size}
+    margin-right: spacing(-$i)
+    margin-left: spacing(-$i)
+$grid-columns: 12 !default
+$grid-column-width: 60px !default
+$grid-gutter-width: 30px !default
+$grid-baseline: 10px !default
+
+@function grid-columns($n)
+  @return ($n * ($grid-column-width+$grid-gutter-width)) - $grid-gutter-width
+
+@function grid-baseline($n)
+  @return $n * $grid-baseline
+
+@function grid-gutter($n)
+  @return $n * $grid-gutter-width
+
+.grid
+  @include clear-floats
+  box-sizing: content-box
+  width: columns($total-columns) + gutter(2)
+  margin-left:auto
+  margin-right:auto
+  position:relative
+
+.grid__row
+  @include clear-floats
+  margin-right: grid-gutter(-0.5)
+  margin-left: grid-gutter(-0.5)
+
+.grid__unit 
+  float: left
+  margin-right: grid-gutter(.5)
+  margin-left: grid-gutter(.5)
+
+  &.is-fluid
+    overflow:hidden
+    float:none
+
+  &.is-flush
+    margin-left:0
+    margin-right:0
+  
+  &.is-padded
+    box-sizing: border-box
+    margin-left:0
+    margin-right:0
+    padding-right: grid-gutter(.5)
+    padding-left: grid-gutter(.5)
+
+@for $i from 1 through $grid-columns
+
+  .grid__span-#{$i}
+    width: grid-columns($i)
+
+  .grid__prepend-#{$i}
+    margin-left: grid-columns($i) + grid-gutter(1.5)
+
+  .grid__append-#{$i}
+    margin-right: grid-columns($i) + grid-gutter(1.5)
+$stack-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default
+$stack-serif: "Georgia", Times New Roman, Times, sans-serif !default
+$stack-monospace: "Monaco", Courier New, monospace !default
+
+//  Shorthand for CSS columns
+//  @include text-columns(3,20px);
+@mixin text-columns($count:2, $gap:20px, $width:auto, $rule:none)
+  @include column-count($count)
+  @include column-gap($count)
+  @include column-width($width)
+  @include column-rule($rule)
+
+// Initial Value: manual
+// Values: none, manual, auto
+@mixin hyphenate($value:auto)
+  -moz-hyphens: $value
+  -webkit-hyphens: $value
+  hyphens: $value
+
+// Justify text and automatically hyphenates
+// which should be done when justifying text
+@mixin justify
+  @include hyphenate
+  text-align: justify
+
+// Styling these together breaks some
+// browsers so we'll use a content block
+@mixin text-selection
+  ::selection
+    @content
+  ::-moz-selection
+    @content
+
+// Nicer text rendering in webkit and gecko
+// @see http://www.aestheticallyloyal.com/public/optimize-legibility/
+// @see http://files.christophzillgens.com/webkit-font-smoothing.html
+@mixin improve-text-rendering
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: antialiased
+
+// Prevent text from wrapping onto multiple lines, and truncate with an ellipsis.
+//
+// 1. Ensure that the node has a maximum width after which truncation can occur.
+// 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
+@mixin truncate-text
+  // 1
+  max-width: 100%
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+  // 2
+  word-wrap: normal
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal)
+  @font-face
+    font-family: $font-family
+    font-weight: $weight
+    font-style: $style
+    src: url('#{$file-path}.eot')
+    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype'), url('#{$file-path}.svg##{$font-family}') format('svg')

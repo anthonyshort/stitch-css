@@ -1,0 +1,57 @@
+$grid-columns: 12 !default
+$grid-column-width: 60px !default
+$grid-gutter-width: 30px !default
+$grid-baseline: 10px !default
+
+@function grid-columns($n)
+  @return ($n * ($grid-column-width+$grid-gutter-width)) - $grid-gutter-width
+
+@function grid-baseline($n)
+  @return $n * $grid-baseline
+
+@function grid-gutter($n)
+  @return $n * $grid-gutter-width
+
+.grid
+  @include clear-floats
+  box-sizing: content-box
+  width: columns($total-columns) + gutter(2)
+  margin-left:auto
+  margin-right:auto
+  position:relative
+
+.grid__row
+  @include clear-floats
+  margin-right: grid-gutter(-0.5)
+  margin-left: grid-gutter(-0.5)
+
+.grid__unit 
+  float: left
+  margin-right: grid-gutter(.5)
+  margin-left: grid-gutter(.5)
+
+  &.is-fluid
+    overflow:hidden
+    float:none
+
+  &.is-flush
+    margin-left:0
+    margin-right:0
+  
+  &.is-padded
+    box-sizing: border-box
+    margin-left:0
+    margin-right:0
+    padding-right: grid-gutter(.5)
+    padding-left: grid-gutter(.5)
+
+@for $i from 1 through $grid-columns
+
+  .grid__span-#{$i}
+    width: grid-columns($i)
+
+  .grid__prepend-#{$i}
+    margin-left: grid-columns($i) + grid-gutter(1.5)
+
+  .grid__append-#{$i}
+    margin-right: grid-columns($i) + grid-gutter(1.5)

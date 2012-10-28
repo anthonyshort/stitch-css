@@ -1,7 +1,0 @@
-//
-//  Prevents the resizing of text. Useful for mobile web apps
-//
-@mixin fixed-sized-text {
-	-webkit-text-size-adjust:none;
-	-ms-text-size-adjust:none;
-}

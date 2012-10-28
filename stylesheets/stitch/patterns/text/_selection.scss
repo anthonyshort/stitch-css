@@ -1,8 +1,0 @@
-@mixin text-selection {
-  ::selection {
-    @content;
-  }
-  ::-moz-selection {
-    @content;
-  }
-}

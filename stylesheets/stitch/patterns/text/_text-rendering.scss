@@ -1,9 +1,0 @@
-//
-//  Nicer text rendering in webkit and gecko
-//  @see http://www.aestheticallyloyal.com/public/optimize-legibility/
-//  @see http://files.christophzillgens.com/webkit-font-smoothing.html
-//
-@mixin improve-text-rendering {
-	text-rendering:optimizeLegibility;
-	-webkit-font-smoothing:antialiased;
-}

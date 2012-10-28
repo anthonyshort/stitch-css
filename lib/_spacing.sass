@@ -1,0 +1,94 @@
+// Generate inline class names for your elements
+//
+// <div class="actions inset-vert-small">
+//    <button type="submit">Totes click me!</button>
+// </div>
+
+$spacing-sizes: small normal medium large !default
+$spacing-base: 10px !default
+
+@function spacing($n)
+  @return $n * $spacing-base
+
+.flush
+  padding: 0
+  margin: 0
+
+@for $i from 1 through length($spacing-sizes)
+
+  $size: nth($spacing-sizes, $i)
+
+  // Padding
+
+  .pad-#{$size}
+    padding: spacing($i)
+
+  .pad-top-#{$size}
+    padding-top: spacing($i)
+  
+  .pad-right-#{$size}
+    padding-right: spacing($i)
+  
+  .pad-bottom-#{$size}
+    padding-bottom: spacing($i)
+  
+  .pad-left-#{$size}
+    padding-left: spacing($i)
+
+  .pad-vert-#{$size}
+    padding-top: spacing($i)
+    padding-bottom: spacing($i)
+  
+  .pad-horz-#{$size}
+    padding-right: spacing($i)
+    padding-left: spacing($i)
+  
+  // Margin Classes
+
+  .inset-#{$size}
+    margin: spacing($i)
+
+  .inset-top-#{$size}
+    margin-top: spacing($i)
+  
+  .inset-right-#{$size}
+    margin-right: spacing($i)
+
+  .inset-bottom-#{$size}
+    margin-bottom: spacing($i)
+  
+  .inset-left-#{$size}
+    margin-left: spacing($i)
+
+  .inset-vert-#{$size} 
+    margin-top: spacing($i)
+    margin-bottom: spacing($i)
+  
+  .inset-horz-#{$size}
+    margin-right: spacing($i)
+    margin-left: spacing($i)
+
+  // Negative Margin Classes
+
+  .outset-#{$size}
+    margin: spacing(-$i)
+
+  .outset-top-#{$size}
+    margin-top: spacing(-$i)
+  
+  .outset-right-#{$size}
+    margin-right: spacing(-$i)
+
+  .outset-bottom-#{$size}
+    margin-bottom: spacing(-$i)
+  
+  .outset-left-#{$size}
+    margin-left: spacing(-$i)
+  
+  .outset-vert-#{$size}
+    margin-top: spacing(-$i)
+    margin-bottom: spacing(-$i)
+  
+  .outset-horz-#{$size}
+    margin-right: spacing(-$i)
+    margin-left: spacing(-$i)
