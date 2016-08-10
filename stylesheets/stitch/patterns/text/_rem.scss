@@ -1,3 +1,6 @@
 @function relative-size($size,$context,$unit:em) {
-	@return #{$size/$context}$unit;
+  @if $unit == rem {
+    @return #{$size}px;
+  }
+  @return #{$size/$context}$unit;
 }
