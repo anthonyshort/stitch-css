@@ -67,9 +67,7 @@ textarea {
 // 2. Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof)
 input[type="search"] {
     -webkit-appearance: textfield; // 1
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box; // 2
-    box-sizing: content-box;
+    @include box-sizing("content-box"); // 2
 }
 
 
@@ -89,7 +87,7 @@ input[type="search"]::-webkit-search-decoration {
 // 2. Addresses excess padding in IE8/9
 input[type="checkbox"],
 input[type="radio"] {
-    box-sizing: border-box; // 1
+    @include box-sizing("border-box"); // 1
     padding: 0; // 2
 }
 
